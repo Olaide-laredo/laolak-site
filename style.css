@@ -35,6 +35,8 @@ html {
   --grey-tint: #bab9b9;
   --grey-shade: #3a3a3a;
 
+  --white: #ffffff;
+
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
@@ -174,8 +176,6 @@ a:hover {
 .hero-content,
 .split-content,
 .web-steps,
-.repair-steps,
-.services-grid,
 .reviews-grid {
   flex-wrap: wrap;
 }
@@ -199,6 +199,11 @@ a,
 .web-step,
 .featured-block {
   transition: all 0.3s ease;
+}
+
+.service-card::after,
+.why-card::after {
+  pointer-events: none;
 }
 
 @keyframes fadeUp {
@@ -314,7 +319,7 @@ a,
 
 .header .btn-primary {
   padding: 0.4rem 1rem;
-  font-size: 0.5rem;
+  font-size: 0.75rem;
 }
 
 /* HAMBURGER */
@@ -532,7 +537,7 @@ a,
   border-radius: 50%;
 
   filter: blur(100px);
-  z-index: 0;
+  z-index: -1;
 }
 
 .services::before {
@@ -573,7 +578,7 @@ a,
 .service-card {
   position: relative;
   display: block;
-
+  z-index: 1;
   aspect-ratio: 16 / 9; /* stable ratio */
 
   border-radius: 12px;
@@ -597,11 +602,22 @@ a,
   transition: transform 0.5s ease;
 }
 
+.repair {
+  background-image: url("images/repair.png");
+}
+
+.gadget-sales {
+  background-image: url("images/sales\ 2.png");
+}
+
+.web-development {
+  background-image: url("images/web\ dev\ 2.png");
+}
+
 .service-card::after {
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     to right,
     rgba(0, 0, 0, 0.6),
@@ -1107,13 +1123,9 @@ a,
   display: flex;
   justify-content: space-between;
   gap: 2rem;
-
-  flex-wrap: wrap;
-}
-
-.footer-content {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .footer-brand,
