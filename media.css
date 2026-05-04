@@ -69,7 +69,7 @@
   }
 
   /* HIDE DESKTOP BUTTON */
-  .header-btn {
+  .header-content .btn-primary {
     display: none;
   }
 }
@@ -600,5 +600,19 @@
   .footer-links a,
   .footer-contact p {
     font-size: 0.85rem;
+  }
+}
+
+/* ================== */
+/* CONTACT RESPONSIVE */
+/* ================== */
+
+@media (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+  }
+
+  .contact-image {
+    height: 150px;
   }
 }

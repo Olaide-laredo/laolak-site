@@ -1,98 +1,153 @@
-// =====================
-// HAMBURGER TOGGLE
-// =====================
+/* ===================================== */
+/* LAOLAK TECHNOLOGIES - MAIN SCRIPT FILE */
+/* ===================================== */
 
-// select elements
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("nav-menu");
+/*
+  This file is built in a SAFE STRUCTURE:
+  - Each feature checks if elements exist
+  - Prevents errors on different pages
+  - Works across ALL pages (home, contact, etc.)
+*/
 
-// click event
-hamburger.addEventListener("click", () => {
-  // toggle active class
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
-});
+/* ===================================== */
+/* WAIT FOR PAGE TO LOAD */
+/* ===================================== */
 
-const elements = document.querySelectorAll(".fade-up");
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("LAOLAK JS LOADED ✅");
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
+  /* ===================================== */
+  /* MOBILE NAVIGATION (HAMBURGER MENU) */
+  /* ===================================== */
+
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  // Only run if BOTH elements exist
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", () => {
+      // Toggle active class for animation
+      hamburger.classList.toggle("active");
+
+      // Show or hide menu
+      navMenu.classList.toggle("show");
     });
-  },
-  {
-    threshold: 0.2,
-  },
-);
+  }
 
-elements.forEach((el) => observer.observe(el));
+  /* ===================================== */
+  /* FADE-UP ANIMATION (SCROLL EFFECT) */
+  /* ===================================== */
 
-document.querySelectorAll(".service-card").forEach((card) => {
-  card.addEventListener("click", function (e) {
-    const circle = document.createElement("span");
-    circle.classList.add("ripple");
+  const fadeElements = document.querySelectorAll(".fade-up");
 
-    const rect = this.getBoundingClientRect();
-    const size = Math.max(rect.width, rect.height);
+  if (fadeElements.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      },
+    );
 
-    circle.style.width = size + "px";
-    circle.style.height = size + "px";
+    fadeElements.forEach((el) => observer.observe(el));
+  }
 
-    circle.style.left = e.clientX - rect.left - size / 2 + "px";
-    circle.style.top = e.clientY - rect.top - size / 2 + "px";
+  /* ===================================== */
+  /* SERVICE CARD RIPPLE EFFECT (CLICK FEEDBACK) */
+  /* ===================================== */
 
-    this.appendChild(circle);
+  const serviceCards = document.querySelectorAll(".service-card");
 
-    setTimeout(() => circle.remove(), 600);
-  });
-});
+  if (serviceCards.length > 0) {
+    serviceCards.forEach((card) => {
+      card.addEventListener("click", function (e) {
+        // Create ripple element
+        const ripple = document.createElement("span");
 
-// Loop through all cards
-document.querySelectorAll(".service-card").forEach((card) => {
-  // Mouse move inside card
-  card.addEventListener("mousemove", (e) => {
-    const rect = card.getBoundingClientRect();
+        ripple.classList.add("ripple");
 
-    // Get mouse position inside card
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+        // Get click position
+        const rect = card.getBoundingClientRect();
 
-    // Calculate movement (-10 to 10 range)
-    const moveX = (x / rect.width - 0.5) * 10;
-    const moveY = (y / rect.height - 0.5) * 10;
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
 
-    // Apply transform
-    card.style.transform = `translate(${moveX}px, ${moveY}px)`;
-  });
+        ripple.style.left = `${x}px`;
+        ripple.style.top = `${y}px`;
 
-  // Reset when mouse leaves
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "translate(0,0)";
-  });
-});
+        // Add ripple to card
+        card.appendChild(ripple);
 
-// Select all buttons
-document.querySelectorAll(".btn-primary, .btn-secondary").forEach((btn) => {
-  btn.addEventListener("mousemove", (e) => {
-    const rect = btn.getBoundingClientRect();
+        // Remove ripple after animation
+        setTimeout(() => {
+          ripple.remove();
+        }, 600);
+      });
+    });
+  }
 
-    // Mouse position inside button
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+  /* ===================================== */
+  /* SMOOTH SCROLL (INTERNAL LINKS) */
+  /* ===================================== */
 
-    // Movement strength
-    const moveX = (x / rect.width - 0.5) * 8;
-    const moveY = (y / rect.height - 0.5) * 8;
+  const links = document.querySelectorAll('a[href^="#"]');
 
-    // Apply transform
-    btn.style.transform = `translate(${moveX}px, ${moveY}px)`;
-  });
+  if (links.length > 0) {
+    links.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        const targetId = this.getAttribute("href");
 
-  // Reset when leaving
-  btn.addEventListener("mouseleave", () => {
-    btn.style.transform = "translate(0,0)";
-  });
+        // Ignore empty links
+        if (targetId === "#") return;
+
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          e.preventDefault();
+
+          target.scrollIntoView({
+            behavior: "smooth",
+          });
+        }
+      });
+    });
+  }
+
+  /* ===================================== */
+  /* CONTACT FORM → WHATSAPP (FIXED VERSION) */
+  /* ===================================== */
+
+  const contactForm = document.getElementById("contact-form");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Get user inputs
+      const name = document.getElementById("name").value.trim();
+      const service = document.getElementById("service").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      // Your WhatsApp number (CORRECT FORMAT)
+      const phoneNumber = "2349060676932";
+
+      // Build clean message
+      const text = `Hello LAOLAK,
+
+Name: ${name}
+Service: ${service}
+Issue: ${message}`;
+
+      // Encode message (VERY IMPORTANT)
+      const encodedText = encodeURIComponent(text);
+
+      // Open WhatsApp
+      window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, "_blank");
+    });
+  }
 });
