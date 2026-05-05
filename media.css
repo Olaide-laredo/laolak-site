@@ -622,3 +622,91 @@
     height: 150px;
   }
 }
+
+/* ================== */
+/* REPAIR RESPONSIVE */
+/* ================== */
+
+@media (max-width: 1024px) {
+  .repair-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .process-steps {
+    flex-direction: column;
+  }
+  .repair-overlay h3 {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .repair-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .repair-overlay-h3 {
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .repair-overlay-h3 {
+    font-size: 0.3rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .repair-overlay-h3 {
+    font-size: 0.15rem;
+  }
+}
+
+/* ======================= */
+/* GADGET SALES RESPONSIVE */
+/* ======================= */
+
+/* PRODUCTS */
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* REQUEST FORM */
+
+/* TABLET */
+@media (max-width: 768px) {
+  .request {
+    padding: 3rem 1rem;
+  }
+
+  .request-form {
+    max-width: 90%;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .request h2 {
+    font-size: 1.5rem;
+  }
+
+  .request p {
+    font-size: 0.85rem;
+  }
+
+  .request-form select,
+  .request-form input,
+  .request-form textarea {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
+}

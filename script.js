@@ -151,3 +151,55 @@ Issue: ${message}`;
     });
   }
 });
+
+const category = document.getElementById("category");
+const brand = document.getElementById("brand");
+
+if (category && brand) {
+  const data = {
+    phones: ["Apple", "Samsung", "Infinix", "Tecno", "Xiaomi"],
+    laptops: ["HP", "Dell", "Lenovo", "Asus", "Acer"],
+    accessories: ["Charger", "Power Bank", "Speaker", "Earbuds", "Cable"],
+  };
+
+  category.addEventListener("change", function () {
+    const selected = category.value;
+
+    brand.innerHTML = `<option value="">Select Option</option>`;
+
+    if (data[selected]) {
+      data[selected].forEach((item) => {
+        const option = document.createElement("option");
+        option.value = item;
+        option.textContent = item;
+        brand.appendChild(option);
+      });
+    }
+  });
+}
+
+/* WHATSAPP FORM */
+
+const form = document.getElementById("requestForm");
+
+if (form) {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const cat = document.getElementById("category").value;
+    const brandVal = document.getElementById("brand").value;
+    const model = document.getElementById("model").value;
+    const details = document.getElementById("details").value;
+
+    const message = `Hello LAOLAK, I want a device:
+
+Category: ${cat}
+Brand/Type: ${brandVal}
+Model: ${model}
+Details: ${details}`;
+
+    const url = `https://wa.me/2349060676932?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+  });
+}

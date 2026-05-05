@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phone Repair | LAOLAK</title>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+  </head>
+
+  <body>
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo">LAOLAK</div>
+
+        <nav class="nav" id="nav-menu">
+          <a href="index.html">Home</a>
+          <a href="index.html#services">Services</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <a href="#repair-form" class="btn-primary header-btn">Book Repair</a>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <!-- <section class="repair-hero section">
+      <div class="container">
+        <h1>Fast & Reliable Phone Repairs</h1>
+        <p>
+          We fix screens, batteries, charging issues, and more — quickly and
+          professionally.
+        </p>
+        <a href="#repair-form" class="btn-primary">Book a Repair</a>
+      </div>
+    </section> -->
+
+    <section class="repair-hero">
+      <div class="repair-hero-overlay"></div>
+      <div class="container repair-hero-content">
+        <h1>Fast & Reliable Phone Repairs</h1>
+        <p>
+          We fix screens, batteries, charging issues, and more — quickly and
+          professionally.
+        </p>
+        <div class="hero-buttons">
+          <a href="#repair-form" class="btn-primary">Book A Repair</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SERVICES ================= -->
+    <section class="repair-services section">
+      <div class="container">
+        <h2>What We Fix</h2>
+
+        <div class="repair-grid">
+          <!-- 1 -->
+          <div class="repair-card fade-up">
+            <div
+              class="repair-bg"
+              style="
+                background-image: url(images/2026_05_01_07_31_IMG_4615.PNG);
+              "
+            ></div>
+            <div class="repair-overlay">
+              <h3>Screen Repair</h3>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="repair-card fade-up">
+            <div
+              class="repair-bg"
+              style="background-image: url(images/accessories\ featured.png)"
+            ></div>
+            <div class="repair-overlay">
+              <h3>Battery Replacement</h3>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="repair-card fade-up">
+            <div
+              class="repair-bg"
+              style="background-image: url(images/cts.png)"
+            ></div>
+            <div class="repair-overlay">
+              <h3>Charging Issue</h3>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="repair-card fade-up">
+            <div
+              class="repair-bg"
+              style="background-image: url(images/customer\ satisfaction.JPG)"
+            ></div>
+            <div class="repair-overlay">
+              <h3>Water Damage</h3>
+            </div>
+          </div>
+
+          <!-- 5 NEW -->
+          <div class="repair-card fade-up">
+            <div
+              class="repair-bg"
+              style="background-image: url(images/laptop\ featured.jpg)"
+            ></div>
+            <div class="repair-overlay">
+              <h3>Motherboard Repair</h3>
+            </div>
+          </div>
+
+          <!-- 6 NEW -->
+          <div class="repair-card fade-up">
+            <div
+              class="repair-bg"
+              style="background-image: url(images/phone\ featured.png)"
+            ></div>
+            <div class="repair-overlay">
+              <h3>Back Glass Repair</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESS ================= -->
+    <section class="repair-process section">
+      <div class="container">
+        <h2>How It Works</h2>
+
+        <div class="repair-steps">
+          <div class="repair-step fade-up">
+            <span>1</span>
+            <h4>Describe Issue</h4>
+            <p>Tell us what’s wrong with your device.</p>
+          </div>
+
+          <div class="repair-step fade-up">
+            <span>2</span>
+            <h4>Diagnosis</h4>
+            <p>We inspect and confirm the problem.</p>
+          </div>
+
+          <div class="repair-step fade-up">
+            <span>3</span>
+            <h4>Repair</h4>
+            <p>We fix it using quality parts.</p>
+          </div>
+
+          <div class="repair-step fade-up">
+            <span>4</span>
+            <h4>Delivery</h4>
+            <p>Pick up or get it delivered.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FORM ================= -->
+    <section class="repair-form section" id="repair-form">
+      <div class="container">
+        <h2>Book a Repair</h2>
+
+        <form id="contact-form">
+          <input type="text" id="name" placeholder="Your Name" required />
+
+          <select id="service" required>
+            <option value="">Select Issue</option>
+            <option>Screen Repair</option>
+            <option>Battery Replacement</option>
+            <option>Charging Issue</option>
+            <option>Water Damage</option>
+          </select>
+
+          <textarea
+            id="message"
+            placeholder="Describe the problem..."
+            required
+          ></textarea>
+
+          <button type="submit" class="btn-primary">Send to WhatsApp</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h4>LAOLAK</h4>
+            <p>Your trusted repair expert.</p>
+          </div>
+
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <div class="footer-contact">
+            <p>📞 +234 906 067 6932</p>
+            <p>📍 Ibadan</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 LAOLAK</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
