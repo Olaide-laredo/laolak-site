@@ -17,19 +17,62 @@
     <!-- HEADER -->
     <header class="header">
       <div class="container header-content">
-        <div class="logo">LAOLAK</div>
+        <a href="index.html">
+          <div class="logo">LAOLAK</div>
+        </a>
 
-        <nav class="nav" id="nav-menu">
-          <a href="index.html">Home</a>
-          <a href="index.html#services">Services</a>
-          <a href="contact.html">Contact</a>
+        <!-- NAV LINKS -->
+        <nav class="nav" id="navMenu">
+          <div class="nav-item dropdown">
+            <span>Services ▾</span>
+            <div class="dropdown-menu">
+              <a href="repair.html">Repair</a>
+              <a href="gadget-sales.html">Gadget Sales</a>
+              <a href="web.html">Web Development</a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <span>Support ▾</span>
+            <div class="dropdown-menu">
+              <a href="#">Tips</a>
+              <a href="#">FAQ</a>
+              <a href="#">Tech Support</a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <span>About Us ▾</span>
+            <div class="dropdown-menu">
+              <a href="#">LAOLAK</a>
+              <a href="#">News</a>
+            </div>
+          </div>
         </nav>
 
-        <a href="contact.html" class="btn-primary">Get Started</a>
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+        <!-- RIGHT SIDE -->
+        <div class="nav-right">
+          <a href="contact.html" class="btn-primary">Contact Us</a>
+
+          <!-- HAMBURGER -->
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="repair.html">Repair</a>
+            <a href="gadget-sales.html">Gadget Sales</a>
+            <a href="web.html">Gadget Sales</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="#">Tips</a>
+            <a href="#">FAQ</a>
+            <a href="#">Tech Support</a>
+            <a href="#">LAOLAK</a>
+            <a href="#">News</a>
+          </div>
         </div>
       </div>
     </header>
@@ -52,20 +95,30 @@
           <p>📧 akinolalawal1804@gmail.com</p>
           <p>📍 Ibadan, Nigeria</p>
 
-          <!-- <div
+          <div
             class="contact-image"
             style="background-image: url(images/repair.png)"
-          ></div> -->
+          ></div>
         </div>
 
         <!-- RIGHT SIDE (FORM) -->
         <div class="contact-form-box fade-up">
           <h3>Send a Request</h3>
 
-          <form id="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required />
+          <form id="contactForm">
+            <input
+              type="text"
+              id="contactName"
+              placeholder="Your Name"
+              required
+            />
 
-            <input type="tel" id="phone" placeholder="Phone Number" required />
+            <input
+              type="tel"
+              id="contactPhone"
+              placeholder="Phone Number"
+              required
+            />
 
             <select id="service" required>
               <option value="">Select Service</option>
@@ -75,7 +128,7 @@
             </select>
 
             <textarea
-              id="message"
+              id="contactMessage"
               placeholder="Describe your request"
               required
             ></textarea>

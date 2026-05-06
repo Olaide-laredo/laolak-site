@@ -1,46 +1,162 @@
-/* ===================================== */
-/* LAOLAK TECHNOLOGIES - MAIN SCRIPT FILE */
-/* ===================================== */
+console.log("JS is fully connected ✅");
+/* =========================
+   LAOLAK MASTER JS (FINAL)
+========================= */
 
-/*
-  This file is built in a SAFE STRUCTURE:
-  - Each feature checks if elements exist
-  - Prevents errors on different pages
-  - Works across ALL pages (home, contact, etc.)
-*/
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("JS Loaded ✅");
 
-/* ===================================== */
-/* WAIT FOR PAGE TO LOAD */
-/* ===================================== */
+  /* =========================
+     HAMBURGER MENU
+  ========================= */
+  const hamburger = document.querySelector(".hamburger");
+  const mobileMenu = document.querySelector(".mobile-menu");
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("LAOLAK JS LOADED ✅");
-
-  /* ===================================== */
-  /* MOBILE NAVIGATION (HAMBURGER MENU) */
-  /* ===================================== */
-
-  const hamburger = document.getElementById("hamburger");
-  const navMenu = document.getElementById("nav-menu");
-
-  // Only run if BOTH elements exist
-  if (hamburger && navMenu) {
+  if (hamburger && mobileMenu) {
     hamburger.addEventListener("click", () => {
-      // Toggle active class for animation
       hamburger.classList.toggle("active");
-
-      // Show or hide menu
-      navMenu.classList.toggle("show");
+      mobileMenu.classList.toggle("show");
     });
   }
 
-  /* ===================================== */
-  /* FADE-UP ANIMATION (SCROLL EFFECT) */
-  /* ===================================== */
+  /* =========================
+     BOOK PRODUCT BUTTON
+  ========================= */
+  const bookButtons = document.querySelectorAll(".book-btn");
 
-  const fadeElements = document.querySelectorAll(".fade-up");
+  if (bookButtons.length > 0) {
+    bookButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const product = btn.dataset.product || "Product";
 
-  if (fadeElements.length > 0) {
+        const message = `Hello LAOLAK 👋
+I want to book this product:
+${product}`;
+
+        const url = `https://wa.me/2349060676932?text=${encodeURIComponent(message)}`;
+
+        window.open(url, "_blank");
+      });
+    });
+  }
+
+  /* =========================
+     CONTACT FORM
+  ========================= */
+  const contactForm = document.querySelector("#contactForm");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("contactName").value;
+      const phone = document.getElementById("contactPhone").value;
+      const service = document.getElementById("service").value;
+      const messageInput = document.getElementById("contactMessage").value;
+
+      const message = `Hello LAOLAK 👋
+Contact Request:
+
+Name: ${name}
+Phone: ${phone}
+Service: ${service}
+Message: ${messageInput}`;
+
+      const url = `https://wa.me/2349060676932?text=${encodeURIComponent(message)}`;
+
+      window.open(url, "_blank");
+    });
+  }
+
+  /* =========================
+     REPAIR FORM
+  ========================= */
+  const repairForm = document.querySelector("#repairForm");
+
+  if (repairForm) {
+    repairForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("repairName").value;
+      const issue = document.getElementById("repairIssue").value;
+      const messageInput = document.getElementById("repairMessage").value;
+
+      const message = `Hello LAOLAK 🔧
+Repair Request:
+
+Name: ${name}
+Issue: ${issue}
+Details: ${messageInput}`;
+
+      const url = `https://wa.me/2349060676932?text=${encodeURIComponent(message)}`;
+
+      window.open(url, "_blank");
+    });
+  }
+
+  /* =========================
+     PRODUCT REQUEST FORM
+  ========================= */
+  const requestForm = document.querySelector("#productRequestForm");
+
+  if (requestForm) {
+    requestForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const category = document.getElementById("category").value;
+      const brand = document.getElementById("brand").value;
+      const model = document.getElementById("model").value;
+      const description = document.getElementById("description").value;
+
+      const message = `Hello LAOLAK 📦
+Product Request:
+
+Category: ${category}
+Brand: ${brand}
+Model: ${model}
+Details: ${description}`;
+
+      const url = `https://wa.me/2349060676932?text=${encodeURIComponent(message)}`;
+
+      window.open(url, "_blank");
+    });
+  }
+
+  /* =========================
+     CATEGORY → BRAND SWITCH
+  ========================= */
+  const categorySelect = document.getElementById("category");
+  const brandSelect = document.getElementById("brand");
+
+  if (categorySelect && brandSelect) {
+    const brands = {
+      phones: ["iPhone", "Samsung", "Tecno", "Infinix"],
+      laptops: ["HP", "Dell", "Lenovo", "MacBook"],
+      accessories: ["Charger", "Power Bank", "Speaker", "Earbuds"],
+    };
+
+    categorySelect.addEventListener("change", () => {
+      const selected = categorySelect.value;
+
+      brandSelect.innerHTML = `<option value="">Select Brand</option>`;
+
+      if (brands[selected]) {
+        brands[selected].forEach((item) => {
+          const option = document.createElement("option");
+          option.value = item;
+          option.textContent = item;
+          brandSelect.appendChild(option);
+        });
+      }
+    });
+  }
+
+  /* =========================
+     FADE-UP ANIMATION
+  ========================= */
+  const faders = document.querySelectorAll(".fade-up");
+
+  if (faders.length > 0) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -49,157 +165,36 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      {
-        threshold: 0.2,
-      },
+      { threshold: 0.2 },
     );
 
-    fadeElements.forEach((el) => observer.observe(el));
+    faders.forEach((el) => observer.observe(el));
   }
 
-  /* ===================================== */
-  /* SERVICE CARD RIPPLE EFFECT (CLICK FEEDBACK) */
-  /* ===================================== */
+  /* ================= WEB FORM ================= */
 
-  const serviceCards = document.querySelectorAll(".service-card");
+  const webForm = document.querySelector("#webForm");
 
-  if (serviceCards.length > 0) {
-    serviceCards.forEach((card) => {
-      card.addEventListener("click", function (e) {
-        // Create ripple element
-        const ripple = document.createElement("span");
-
-        ripple.classList.add("ripple");
-
-        // Get click position
-        const rect = card.getBoundingClientRect();
-
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        ripple.style.left = `${x}px`;
-        ripple.style.top = `${y}px`;
-
-        // Add ripple to card
-        card.appendChild(ripple);
-
-        // Remove ripple after animation
-        setTimeout(() => {
-          ripple.remove();
-        }, 600);
-      });
-    });
-  }
-
-  /* ===================================== */
-  /* SMOOTH SCROLL (INTERNAL LINKS) */
-  /* ===================================== */
-
-  const links = document.querySelectorAll('a[href^="#"]');
-
-  if (links.length > 0) {
-    links.forEach((link) => {
-      link.addEventListener("click", function (e) {
-        const targetId = this.getAttribute("href");
-
-        // Ignore empty links
-        if (targetId === "#") return;
-
-        const target = document.querySelector(targetId);
-
-        if (target) {
-          e.preventDefault();
-
-          target.scrollIntoView({
-            behavior: "smooth",
-          });
-        }
-      });
-    });
-  }
-
-  /* ===================================== */
-  /* CONTACT FORM → WHATSAPP (FIXED VERSION) */
-  /* ===================================== */
-
-  const contactForm = document.getElementById("contact-form");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
+  if (webForm) {
+    webForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // Get user inputs
-      const name = document.getElementById("name").value.trim();
-      const service = document.getElementById("service").value.trim();
-      const message = document.getElementById("message").value.trim();
+      const name = document.getElementById("webName").value;
+      const phone = document.getElementById("webPhone").value;
+      const type = document.getElementById("webType").value;
+      const details = document.getElementById("webDetails").value;
 
-      // Your WhatsApp number (CORRECT FORMAT)
-      const phoneNumber = "2349060676932";
-
-      // Build clean message
-      const text = `Hello LAOLAK,
+      const message = `Hello LAOLAK 💻
+Web Project Request:
 
 Name: ${name}
-Service: ${service}
-Issue: ${message}`;
+Phone: ${phone}
+Type: ${type}
+Details: ${details}`;
 
-      // Encode message (VERY IMPORTANT)
-      const encodedText = encodeURIComponent(text);
+      const url = `https://wa.me/2349060676932?text=${encodeURIComponent(message)}`;
 
-      // Open WhatsApp
-      window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`, "_blank");
+      window.open(url, "_blank");
     });
   }
 });
-
-const category = document.getElementById("category");
-const brand = document.getElementById("brand");
-
-if (category && brand) {
-  const data = {
-    phones: ["Apple", "Samsung", "Infinix", "Tecno", "Xiaomi"],
-    laptops: ["HP", "Dell", "Lenovo", "Asus", "Acer"],
-    accessories: ["Charger", "Power Bank", "Speaker", "Earbuds", "Cable"],
-  };
-
-  category.addEventListener("change", function () {
-    const selected = category.value;
-
-    brand.innerHTML = `<option value="">Select Option</option>`;
-
-    if (data[selected]) {
-      data[selected].forEach((item) => {
-        const option = document.createElement("option");
-        option.value = item;
-        option.textContent = item;
-        brand.appendChild(option);
-      });
-    }
-  });
-}
-
-/* WHATSAPP FORM */
-
-const form = document.getElementById("requestForm");
-
-if (form) {
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const cat = document.getElementById("category").value;
-    const brandVal = document.getElementById("brand").value;
-    const model = document.getElementById("model").value;
-    const details = document.getElementById("details").value;
-
-    const message = `Hello LAOLAK, I want a device:
-
-Category: ${cat}
-Brand/Type: ${brandVal}
-Model: ${model}
-Details: ${details}`;
-
-    const url = `https://wa.me/2349060676932?text=${encodeURIComponent(message)}`;
-
-    window.open(url, "_blank");
-  });
-}

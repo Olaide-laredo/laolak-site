@@ -13,18 +13,62 @@
     <!-- HEADER -->
     <header class="header">
       <div class="container header-content">
-        <div class="logo">LAOLAK</div>
+        <a href="index.html">
+          <div class="logo">LAOLAK</div>
+        </a>
 
-        <nav class="nav" id="nav-menu">
-          <a href="../index.html">Home</a>
-          <a href="../index.html#services">Services</a>
-          <a href="contact.html">Contact</a>
+        <!-- NAV LINKS -->
+        <nav class="nav" id="navMenu">
+          <div class="nav-item dropdown">
+            <span>Services ▾</span>
+            <div class="dropdown-menu">
+              <a href="repair.html">Repair</a>
+              <a href="gadget-sales.html">Gadget Sales</a>
+              <a href="web.html">Web Development</a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <span>Support ▾</span>
+            <div class="dropdown-menu">
+              <a href="#">Tips</a>
+              <a href="#">FAQ</a>
+              <a href="#">Tech Support</a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <span>About Us ▾</span>
+            <div class="dropdown-menu">
+              <a href="#">LAOLAK</a>
+              <a href="#">News</a>
+            </div>
+          </div>
         </nav>
 
-        <a href="contact.html" class="btn-primary header-btn">Get a Quote</a>
+        <!-- RIGHT SIDE -->
+        <div class="nav-right">
+          <a href="contact.html" class="btn-primary">Contact Us</a>
 
-        <div class="hamburger" id="hamburger">
-          <span></span><span></span><span></span>
+          <!-- HAMBURGER -->
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="repair.html">Repair</a>
+            <a href="gadget-sales.html">Gadget Sales</a>
+            <a href="web.html">Gadget Sales</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="#">Tips</a>
+            <a href="#">FAQ</a>
+            <a href="#">Tech Support</a>
+            <a href="#">LAOLAK</a>
+            <a href="#">News</a>
+          </div>
         </div>
       </div>
     </header>
@@ -372,7 +416,7 @@
         <h2>Can't Find What You Want?</h2>
         <p>Tell us exactly what you need.</p>
 
-        <form id="requestForm" class="request-form">
+        <form id="productRequestForm" class="request-form">
           <!-- CATEGORY -->
           <select id="category" required>
             <option value="">Select Category</option>
@@ -391,7 +435,7 @@
 
           <!-- DETAILS -->
           <textarea
-            id="details"
+            id="description"
             placeholder="Storage, color, condition, budget..."
             required
           ></textarea>
@@ -464,7 +508,7 @@
           <p>Chat with us instantly and secure your device today.</p>
 
           <div class="cta-buttons">
-            <a href="contact.html" class="btn-primary">Buy Now</a>
+            <a href="#request" class="btn-primary">Buy Now</a>
             <a href="contact.html" class="btn-secondary">Contact Us</a>
           </div>
         </div>
@@ -491,15 +535,15 @@
             <a href="#">Home</a>
             <a href="#">Services</a>
             <a href="#">Portfolio</a>
-            <a href="#">Contact</a>
+            <a href="contact.html">Contact</a>
           </div>
 
           <!-- SERVICES -->
           <div class="footer-links">
             <h5>Services</h5>
-            <a href="#">Phone Repair</a>
-            <a href="#">Gadget Sales</a>
-            <a href="#">Web Development</a>
+            <a href="repair.html">Phone Repair</a>
+            <a href="gadget-sales.html">Gadget Sales</a>
+            <a href="web.html">Web Development</a>
           </div>
 
           <!-- CONTACT -->

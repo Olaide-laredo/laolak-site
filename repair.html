@@ -20,35 +20,67 @@
     <!-- ================= HEADER ================= -->
     <header class="header">
       <div class="container header-content">
-        <div class="logo">LAOLAK</div>
+        <a href="index.html">
+          <div class="logo">LAOLAK</div>
+        </a>
 
-        <nav class="nav" id="nav-menu">
-          <a href="index.html">Home</a>
-          <a href="index.html#services">Services</a>
-          <a href="contact.html">Contact</a>
+        <!-- NAV LINKS -->
+        <nav class="nav" id="navMenu">
+          <div class="nav-item dropdown">
+            <span>Services ▾</span>
+            <div class="dropdown-menu">
+              <a href="repair.html">Repair</a>
+              <a href="gadget-sales.html">Gadget Sales</a>
+              <a href="web.html">Web Development</a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <span>Support ▾</span>
+            <div class="dropdown-menu">
+              <a href="#">Tips</a>
+              <a href="#">FAQ</a>
+              <a href="#">Tech Support</a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <span>About Us ▾</span>
+            <div class="dropdown-menu">
+              <a href="#">LAOLAK</a>
+              <a href="#">News</a>
+            </div>
+          </div>
         </nav>
 
-        <a href="#repair-form" class="btn-primary header-btn">Book Repair</a>
+        <!-- RIGHT SIDE -->
+        <div class="nav-right">
+          <a href="contact.html" class="btn-primary">Contact Us</a>
 
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+          <!-- HAMBURGER -->
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="repair.html">Repair</a>
+            <a href="gadget-sales.html">Gadget Sales</a>
+            <a href="web.html">Gadget Sales</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="#">Tips</a>
+            <a href="#">FAQ</a>
+            <a href="#">Tech Support</a>
+            <a href="#">LAOLAK</a>
+            <a href="#">News</a>
+          </div>
         </div>
       </div>
     </header>
 
     <!-- ================= HERO ================= -->
-    <!-- <section class="repair-hero section">
-      <div class="container">
-        <h1>Fast & Reliable Phone Repairs</h1>
-        <p>
-          We fix screens, batteries, charging issues, and more — quickly and
-          professionally.
-        </p>
-        <a href="#repair-form" class="btn-primary">Book a Repair</a>
-      </div>
-    </section> -->
 
     <section class="repair-hero">
       <div class="repair-hero-overlay"></div>
@@ -179,10 +211,10 @@
       <div class="container">
         <h2>Book a Repair</h2>
 
-        <form id="contact-form">
-          <input type="text" id="name" placeholder="Your Name" required />
+        <form id="repairForm">
+          <input type="text" id="repairName" placeholder="Your Name" required />
 
-          <select id="service" required>
+          <select id="repairIssue" required>
             <option value="">Select Issue</option>
             <option>Screen Repair</option>
             <option>Battery Replacement</option>
@@ -191,7 +223,7 @@
           </select>
 
           <textarea
-            id="message"
+            id="repairMessage"
             placeholder="Describe the problem..."
             required
           ></textarea>

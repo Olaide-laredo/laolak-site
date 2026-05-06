@@ -19,24 +19,62 @@
 
     <header class="header">
       <div class="container header-content">
-        <!-- LOGO -->
-        <div class="logo">LAOLAK</div>
+        <a href="#">
+          <div class="logo">LAOLAK</div>
+        </a>
 
-        <!-- NAVIGATION -->
-        <nav class="nav" id="nav-menu">
-          <a href="#">Home</a>
-          <a href="#">Services</a>
-          <a href="contact.html">Contact</a>
+        <!-- NAV LINKS -->
+        <nav class="nav" id="navMenu">
+          <div class="nav-item dropdown">
+            <span>Services ▾</span>
+            <div class="dropdown-menu">
+              <a href="repair.html">Repair</a>
+              <a href="gadget-sales.html">Gadget Sales</a>
+              <a href="web.html">Web Development</a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <span>Support ▾</span>
+            <div class="dropdown-menu">
+              <a href="#">Tips</a>
+              <a href="#">FAQ</a>
+              <a href="#">Tech Support</a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <span>About Us ▾</span>
+            <div class="dropdown-menu">
+              <a href="#">LAOLAK</a>
+              <a href="#">News</a>
+            </div>
+          </div>
         </nav>
 
-        <!-- CTA BUTTON -->
-        <a href="contact.html" class="btn-primary btn">Get Started</a>
+        <!-- RIGHT SIDE -->
+        <div class="nav-right">
+          <a href="contact.html" class="btn-primary">Contact Us</a>
 
-        <!-- HAMBURGER -->
-        <div class="hamburger" id="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
+          <!-- HAMBURGER -->
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="repair.html">Repair</a>
+            <a href="gadget-sales.html">Gadget Sales</a>
+            <a href="web.html">Gadget Sales</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="#">Tips</a>
+            <a href="#">FAQ</a>
+            <a href="#">Tech Support</a>
+            <a href="#">LAOLAK</a>
+            <a href="#">News</a>
+          </div>
         </div>
       </div>
     </header>
@@ -129,7 +167,7 @@
             </a>
 
             <!-- CARD 3 -->
-            <a href="#" class="service-card">
+            <a href="web.html" class="service-card">
               <div class="service-bg web-development"></div>
 
               <div class="service-content">
@@ -280,8 +318,8 @@
               </div>
 
               <div class="web-buttons">
-                <a href="#" class="btn-primary">Get Started</a>
-                <a href="#" class="btn-secondary">View Portfolio</a>
+                <a href="web.html" class="btn-primary">Get Started</a>
+                <a href="web.html" class="btn-secondary">View Portfolio</a>
               </div>
             </div>
           </div>
@@ -400,7 +438,7 @@
             <h5>Services</h5>
             <a href="repair.html">Phone Repair</a>
             <a href="gadget-sales.html">Gadget Sales</a>
-            <a href="#">Web Development</a>
+            <a href="web.html">Web Development</a>
           </div>
 
           <!-- CONTACT -->
@@ -426,6 +464,6 @@
       💬
     </a>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
