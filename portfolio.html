@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Portfolio | LAOLAK</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+  </head>
+
+  <body class="dark-portfolio">
+    <!-- ================= LOADER ================= -->
+
+    <div class="loader">
+      <div class="loader-content">
+        <h1>LAOLAK</h1>
+
+        <div class="loader-line"></div>
+      </div>
+    </div>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+      <div class="container header-content">
+        <a href="index.html">
+          <div class="logo">LAOLAK</div>
+        </a>
+
+        <!-- NAV LINKS -->
+        <nav class="nav" id="navMenu">
+          <div class="nav-item dropdown">
+            <span>Services ▾</span>
+            <div class="dropdown-menu">
+              <a href="repair.html">Repair</a>
+              <a href="gadget-sales.html">Gadget Sales</a>
+              <a href="web.html">Web Development</a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <span>Support ▾</span>
+            <div class="dropdown-menu">
+              <a href="#">Tips</a>
+              <a href="#">FAQ</a>
+              <a href="#">Tech Support</a>
+            </div>
+          </div>
+
+          <div class="nav-item dropdown">
+            <span>About Us ▾</span>
+            <div class="dropdown-menu">
+              <a href="#">LAOLAK</a>
+              <a href="#">News</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- RIGHT SIDE -->
+        <div class="nav-right">
+          <a href="contact.html" class="btn-primary">Contact Us</a>
+
+          <!-- HAMBURGER -->
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="repair.html">Repair</a>
+            <a href="gadget-sales.html">Gadget Sales</a>
+            <a href="web.html">Gadget Sales</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="#">Tips</a>
+            <a href="#">FAQ</a>
+            <a href="#">Tech Support</a>
+            <a href="#">LAOLAK</a>
+            <a href="#">News</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="portfolio-hero">
+      <div class="container">
+        <div class="portfolio-hero-content fade-up">
+          <h1>Our Work Speaks For Itself</h1>
+
+          <p>
+            Clean. Modern. Responsive digital experiences built for brands and
+            businesses.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FILTERS ================= -->
+
+    <section class="portfolio-filter section">
+      <div class="container">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+
+          <button class="filter-btn" data-filter="business">Business</button>
+
+          <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+
+          <button class="filter-btn" data-filter="landing">
+            Landing Pages
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECT GRID ================= -->
+
+    <section class="portfolio-grid-section">
+      <div class="container">
+        <div class="portfolio-grid">
+          <!-- CARD -->
+          <div class="portfolio-card fade-up" data-category="business">
+            <div
+              class="portfolio-image"
+              style="background-image: url(images/web dev 2.png)"
+            ></div>
+
+            <div class="portfolio-content">
+              <span class="portfolio-category"> Business Website </span>
+
+              <h3>Corporate Brand Site</h3>
+
+              <p>Responsive company website with premium UI layout.</p>
+
+              <button
+                class="btn-primary portfolio-view-btn"
+                data-title="Corporate Brand Site"
+                data-category="Business Website"
+                data-description="Responsive company website with premium UI layout and optimized user experience."
+                data-image="images/web dev 2.png"
+                data-link="https://example.com"
+              >
+                View Project
+              </button>
+            </div>
+          </div>
+
+          <!-- CARD -->
+          <div class="portfolio-card fade-up" data-category="ecommerce">
+            <div
+              class="portfolio-image"
+              style="background-image: url(images/sales 2.png)"
+            ></div>
+
+            <div class="portfolio-content">
+              <span class="portfolio-category"> E-Commerce </span>
+
+              <h3>Gadget Store</h3>
+
+              <p>Product-focused online store with shopping experience.</p>
+
+              <button
+                class="btn-primary portfolio-view-btn"
+                data-title="Gadget Store"
+                data-category="E-Commerce"
+                data-description="Modern gadget store with clean shopping experience and responsive product layout."
+                data-image="images/sales 2.png"
+                data-link="https://example.com"
+              >
+                View Project
+              </button>
+            </div>
+          </div>
+
+          <!-- CARD -->
+          <div class="portfolio-card fade-up" data-category="landing">
+            <div
+              class="portfolio-image"
+              style="background-image: url(images/repair.png)"
+            ></div>
+
+            <div class="portfolio-content">
+              <span class="portfolio-category"> Landing Page </span>
+
+              <h3>Marketing Campaign</h3>
+
+              <p>High-converting landing page for campaign promotion.</p>
+
+              <button
+                class="btn-primary portfolio-view-btn"
+                data-title="Marketing Campaign"
+                data-category="Landing Page"
+                data-description="High-converting landing page designed for campaign marketing and lead generation."
+                data-image="images/repair.png"
+                data-link="https://example.com"
+              >
+                View Project
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+
+    <section class="testimonials section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Client Feedback</h2>
+          <p>What our clients say about us.</p>
+        </div>
+
+        <div class="testimonial-grid">
+          <div class="testimonial-card fade-up">
+            <p>“LAOLAK transformed our online presence completely.”</p>
+
+            <h4>— Business Owner</h4>
+          </div>
+
+          <div class="testimonial-card fade-up">
+            <p>“Fast delivery and premium quality website.”</p>
+
+            <h4>— Startup Founder</h4>
+          </div>
+
+          <div class="testimonial-card fade-up">
+            <p>“Very responsive and professional experience.”</p>
+
+            <h4>— Brand Client</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+
+    <section class="portfolio-cta section">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Ready To Build Yours?</h2>
+
+          <p>Let’s create a modern digital experience for your business.</p>
+
+          <a href="contact.html" class="btn-primary"> Start Your Project </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <!-- BRAND -->
+          <div class="footer-brand">
+            <h4>LAOLAK</h4>
+            <p>
+              Your trusted partner for gadget repairs, sales, and digital
+              solutions.
+            </p>
+          </div>
+
+          <!-- LINKS -->
+          <div class="footer-links">
+            <h5>Quick Links</h5>
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#">Portfolio</a>
+            <a href="contact.html">Contact</a>
+          </div>
+
+          <!-- SERVICES -->
+          <div class="footer-links">
+            <h5>Services</h5>
+            <a href="repair.html">Phone Repair</a>
+            <a href="gadget-sales.html">Gadget Sales</a>
+            <a href="web.html">Web Development</a>
+          </div>
+
+          <!-- CONTACT -->
+          <div class="footer-contact">
+            <h5>Contact</h5>
+            <p>📞 +234 906 067 6932</p>
+            <p>📧 akinolalawal1804@gmail.com</p>
+            <p>📍 Ibadan, Nigeria</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 LAOLAK. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= PORTFOLIO MODAL ================= -->
+
+    <div class="portfolio-modal" id="portfolioModal">
+      <div class="portfolio-modal-content">
+        <span class="portfolio-close"> &times; </span>
+
+        <div class="portfolio-modal-image" id="modalImage"></div>
+
+        <div class="portfolio-modal-text">
+          <span id="modalCategory"> Business Website </span>
+
+          <h2 id="modalTitle">Project Title</h2>
+
+          <p id="modalDescription">Project description goes here.</p>
+
+          <div class="modal-buttons">
+            <!-- LIVE PREVIEW -->
+            <a href="#" class="btn-primary" id="livePreviewBtn" target="_blank">
+              Live Preview
+            </a>
+
+            <!-- CASE STUDY -->
+            <a href="casestudy.html" class="btn-secondary"> View Case Study </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

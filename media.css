@@ -92,7 +92,11 @@
   }
 
   .nav-item span {
-    font-size: 0.4rem;
+    font-size: 0.55rem;
+  }
+
+  .nav {
+    gap: 0.5rem;
   }
 }
 
@@ -107,9 +111,9 @@
     font-size: 1rem;
   }
 
-  .nav {
+  /* .nav {
     gap: 1rem;
-  }
+  } */
 
   .nav a {
     font-size: 0.9rem;
@@ -671,5 +675,102 @@
   .request-form textarea {
     font-size: 0.85rem;
     padding: 0.75rem;
+  }
+}
+
+/* ================== */
+/* web dev responsive */
+/* ================== */
+
+/* ================= PROCESS ================= */
+
+@media (max-width: 768px) {
+  .process-item {
+    gap: 1rem;
+    padding-left: 1rem;
+  }
+
+  .process-text h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ================= STATS ================= */
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================= PRICING ================= */
+
+@media (max-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .popular {
+    transform: scale(1);
+  }
+}
+
+/* ====== PORTFOLIO ======== */
+
+@media (max-width: 900px) {
+  .portfolio-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-hero h1 {
+    font-size: 2rem;
+  }
+}
+
+/* === MODAL ===== */
+
+@media (max-width: 768px) {
+  .portfolio-modal-content {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-modal-image {
+    min-height: 250px;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+  }
+}
+
+/*===================  */
+/* === CASE STUDY ==== */
+/*===================  */
+
+@media (max-width: 900px) {
+  .case-hero-grid,
+  .process-grid,
+  .results-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .case-hero-content h1 {
+    font-size: 2.3rem;
+  }
+
+  .case-buttons {
+    flex-direction: column;
   }
 }

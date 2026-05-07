@@ -197,4 +197,194 @@ Details: ${details}`;
       window.open(url, "_blank");
     });
   }
+
+  /* ================= PRICING BUTTONS ================= */
+
+  document.querySelectorAll(".pricing-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const packageName = btn.dataset.package;
+
+      const message = `Hello LAOLAK 💻
+
+I am interested in your:
+${packageName}
+
+Please give me more details.`;
+
+      const url = `https://wa.me/2349060676932?text=${encodeURIComponent(message)}`;
+
+      window.open(url, "_blank");
+    });
+  });
+
+  /* ================= PORTFOLIO FILTER ================= */
+
+  const filterButtons = document.querySelectorAll(".filter-btn");
+
+  const portfolioCards = document.querySelectorAll(".portfolio-card");
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach((b) => b.classList.remove("active"));
+
+      btn.classList.add("active");
+
+      const filter = btn.dataset.filter;
+
+      portfolioCards.forEach((card) => {
+        const category = card.dataset.category;
+
+        if (filter === "all" || filter === category) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
+  });
+
+  /* ================= PORTFOLIO MODAL ================= */
+
+  const portfolioModal = document.getElementById("portfolioModal");
+
+  const modalImage = document.getElementById("modalImage");
+
+  const modalTitle = document.getElementById("modalTitle");
+
+  const modalCategory = document.getElementById("modalCategory");
+
+  const modalDescription = document.getElementById("modalDescription");
+  const livePreviewBtn = document.getElementById("livePreviewBtn");
+
+  const modalClose = document.querySelector(".portfolio-close");
+
+  const portfolioButtons = document.querySelectorAll(".portfolio-view-btn");
+
+  portfolioButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const title = btn.dataset.title;
+
+      const category = btn.dataset.category;
+
+      const description = btn.dataset.description;
+
+      const image = btn.dataset.image;
+      const link = btn.dataset.link;
+
+      modalTitle.textContent = title;
+
+      modalCategory.textContent = category;
+
+      modalDescription.textContent = description;
+
+      modalImage.style.backgroundImage = `url(${image})`;
+      livePreviewBtn.href = link;
+
+      portfolioModal.classList.add("show");
+    });
+  });
+
+  /* CLOSE MODAL */
+
+  if (modalClose) {
+    modalClose.addEventListener("click", () => {
+      portfolioModal.classList.remove("show");
+    });
+  }
+
+  /* CLICK OUTSIDE */
+
+  window.addEventListener("click", (e) => {
+    if (e.target === portfolioModal) {
+      portfolioModal.classList.remove("show");
+    }
+  });
+
+  /* ESC KEY */
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      portfolioModal.classList.remove("show");
+    }
+  });
+
+  /* ================= LOADER ================= */
+
+  window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader");
+
+    if (loader) {
+      setTimeout(() => {
+        loader.classList.add("hide");
+      }, 800);
+    }
+  });
+
+  /* ================= PAGE TRANSITIONS ================= */
+
+  const transitionLinks = document.querySelectorAll("a");
+
+  transitionLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+
+    if (
+      href &&
+      !href.startsWith("#") &&
+      !href.startsWith("http") &&
+      !link.hasAttribute("target")
+    ) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        document.body.classList.add("page-leave");
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, 400);
+      });
+    }
+  });
+
+  /* ================= ANIMATED COUNTERS ================= */
+
+  const counters = document.querySelectorAll(".counter");
+
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+
+          const target = +counter.dataset.target;
+
+          let current = 0;
+
+          const increment = target / 60;
+
+          const updateCounter = () => {
+            current += increment;
+
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          };
+
+          updateCounter();
+
+          counterObserver.unobserve(counter);
+        }
+      });
+    },
+    {
+      threshold: 0.5,
+    },
+  );
+
+  counters.forEach((counter) => {
+    counterObserver.observe(counter);
+  });
 });

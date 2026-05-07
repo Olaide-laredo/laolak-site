@@ -11,15 +11,22 @@
     />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="media.css" />
-
-    <script src="script.js" defer></script>
   </head>
 
   <body>
+    <!-- ================= LOADER ================= -->
+
+    <div class="loader">
+      <div class="loader-content">
+        <h1>LAOLAK</h1>
+
+        <div class="loader-line"></div>
+      </div>
+    </div>
     <!-- ================= HEADER ================= -->
     <header class="header">
       <div class="container header-content">
-        <a href="#">
+        <a href="index.html">
           <div class="logo">LAOLAK</div>
         </a>
 
@@ -88,7 +95,7 @@
 
           <div class="hero-buttons">
             <a href="#web-form" class="btn-primary">Start a Project</a>
-            <a href="#portfolio" class="btn-secondary">View Portfolio</a>
+            <a href="portfolio.html" class="btn-secondary">View Portfolio</a>
           </div>
         </div>
       </div>
@@ -105,7 +112,7 @@
             <div class="service-card">
               <div
                 class="service-bg"
-                style="background-image: url(images/web dev 2.png)"
+                style="background-image: url(images/bussinesssite1.jpeg)"
               ></div>
               <div class="service-content">
                 <h3>Business Websites</h3>
@@ -115,7 +122,7 @@
             <div class="service-card">
               <div
                 class="service-bg"
-                style="background-image: url(images/repair.png)"
+                style="background-image: url(images/e-commerce1.jpg)"
               ></div>
               <div class="service-content">
                 <h3>E-Commerce Stores</h3>
@@ -125,7 +132,7 @@
             <div class="service-card">
               <div
                 class="service-bg"
-                style="background-image: url(images/sales 2.png)"
+                style="background-image: url(images/landingpage1.jpg)"
               ></div>
               <div class="service-content">
                 <h3>Landing Pages</h3>
@@ -137,56 +144,71 @@
     </section>
 
     <!-- ================= PROCESS ================= -->
-    <section class="why section">
+    <section class="web-process section">
       <div class="container">
-        <div class="why-box">
+        <div class="section-header">
           <h2>Our Process</h2>
 
-          <div class="why-grid">
-            <div class="why-card fade-up">
-              <div
-                class="why-bg"
-                style="background-image: url(images/cts.PNG)"
-              ></div>
-              <div class="why-content">
-                <h5>1. Analyze</h5>
-                <p>We understand your business and goals.</p>
-              </div>
-            </div>
+          <p>
+            A structured approach designed to deliver premium digital
+            experiences.
+          </p>
+        </div>
 
-            <div class="why-card fade-up">
-              <div
-                class="why-bg"
-                style="
-                  background-image: url(images/2026_05_01_07_31_IMG_4615.PNG);
-                "
-              ></div>
-              <div class="why-content">
-                <h5>2. Design</h5>
-                <p>We craft a clean and modern experience.</p>
-              </div>
-            </div>
+        <div class="process-wrapper">
+          <!-- ITEM -->
+          <div class="process-item fade-up">
+            <div class="process-number">01</div>
 
-            <div class="why-card fade-up">
-              <div
-                class="why-bg"
-                style="background-image: url(images/fast and efficient.JPG)"
-              ></div>
-              <div class="why-content">
-                <h5>3. Develop</h5>
-                <p>We build fast, secure, responsive systems.</p>
-              </div>
-            </div>
+            <div class="process-text">
+              <h3>Discovery & Strategy</h3>
 
-            <div class="why-card fade-up">
-              <div
-                class="why-bg"
-                style="background-image: url(images/customer satisfaction.JPG)"
-              ></div>
-              <div class="why-content">
-                <h5>4. Launch</h5>
-                <p>Your website goes live and starts working.</p>
-              </div>
+              <p>
+                We understand your brand, audience and business goals before
+                touching design.
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM -->
+          <div class="process-item fade-up">
+            <div class="process-number">02</div>
+
+            <div class="process-text">
+              <h3>UI / UX Design</h3>
+
+              <p>
+                Clean layouts and premium interfaces focused on user experience
+                and conversion.
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM -->
+          <div class="process-item fade-up">
+            <div class="process-number">03</div>
+
+            <div class="process-text">
+              <h3>Development</h3>
+
+              <p>
+                Turning visuals into a fast, responsive and functional digital
+                product.
+              </p>
+            </div>
+          </div>
+
+          <!-- ITEM -->
+          <div class="process-item fade-up">
+            <div class="process-number">04</div>
+
+            <div class="process-text">
+              <h3>Launch & Support</h3>
+
+              <p>
+                Testing, optimization and support to ensure smooth launch and
+                performance.
+              </p>
             </div>
           </div>
         </div>
@@ -196,68 +218,138 @@
     <!-- ================= PORTFOLIO ================= -->
     <section class="split section" id="portfolio">
       <div class="container">
-        <div class="split-card">
-          <div class="split-content">
-            <!-- LEFT -->
-            <div class="featured">
-              <h3 class="split-title">Recent Projects</h3>
+        <!-- RIGHT -->
+        <div class="web-promo">
+          <h2 class="web-title">Why Businesses Choose LAOLAK</h2>
 
-              <div class="featured-grid">
-                <div class="featured-block">
-                  <div class="featured-item">
-                    <div
-                      class="featured-image"
-                      style="background-image: url(images/phone featured.PNG)"
-                    ></div>
-                  </div>
-                  <p class="featured-title">Business Website</p>
-                </div>
-
-                <div class="featured-block">
-                  <div class="featured-item">
-                    <div
-                      class="featured-image"
-                      style="background-image: url(images/laptop featured.JPG)"
-                    ></div>
-                  </div>
-                  <p class="featured-title">E-Commerce</p>
-                </div>
-
-                <div class="featured-block">
-                  <div class="featured-item">
-                    <div
-                      class="featured-image"
-                      style="
-                        background-image: url(images/accessories featured.PNG);
-                      "
-                    ></div>
-                  </div>
-                  <p class="featured-title">Landing Page</p>
-                </div>
-              </div>
+          <div class="web-steps">
+            <div class="web-step fade-up">
+              <span class="step-title">Fast Delivery</span>
+              <small> We deliver clean and optimized websites quickly. </small>
             </div>
 
-            <!-- RIGHT -->
-            <div class="web-promo">
-              <h3 class="web-title">Why Your Business Needs a Website</h3>
-
-              <div class="web-steps">
-                <div class="web-step fade-up">
-                  <span class="step-title">24/7 Presence</span>
-                  <small>Your business never sleeps</small>
-                </div>
-
-                <div class="web-step fade-up">
-                  <span class="step-title">More Customers</span>
-                  <small>Reach more people online</small>
-                </div>
-
-                <div class="web-step fade-up">
-                  <span class="step-title">Credibility</span>
-                  <small>Look professional & trusted</small>
-                </div>
-              </div>
+            <div class="web-step fade-up">
+              <span class="step-title">Mobile Responsive</span>
+              <small> Your website works perfectly on all devices. </small>
             </div>
+
+            <div class="web-step fade-up">
+              <span class="step-title">Premium Design</span>
+              <small> Modern layouts that build trust instantly. </small>
+            </div>
+          </div>
+          <div class="portfolio-btn">
+            <a href="portfolio.html" class="btn-primary"> View Portfolio </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card fade-up">
+            <h2><span class="counter" data-target="20"> 0 </span>+</h2>
+            <p>Projects Completed</p>
+          </div>
+
+          <div class="stat-card fade-up">
+            <h2><span class="counter" data-target="100"> 0 </span>%</h2>
+            <p>Responsive Design</p>
+          </div>
+
+          <div class="stat-card fade-up">
+            <h2><span class="counter" data-target="24"> 0 </span>/7</h2>
+            <p>Client Support</p>
+          </div>
+
+          <div class="stat-card fade-up">
+            <h2>Fast</h2>
+            <p>Delivery Time</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Website Packages</h2>
+          <p>Flexible packages for brands, businesses and startups.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- BASIC -->
+          <div class="pricing-card fade-up">
+            <span class="pricing-tag">Starter</span>
+
+            <h3>Basic Website</h3>
+
+            <div class="featured-price">₦100k+</div>
+
+            <ul class="pricing-features">
+              <li>✔ Responsive Design</li>
+              <li>✔ Up to 5 Pages</li>
+              <li>✔ WhatsApp Integration</li>
+              <li>✔ Fast Delivery</li>
+            </ul>
+
+            <button
+              class="btn-primary pricing-btn"
+              data-package="Basic Website"
+            >
+              Get Started
+            </button>
+          </div>
+
+          <!-- POPULAR -->
+          <div class="pricing-card popular fade-up">
+            <div class="popular-badge">Most Popular</div>
+
+            <span class="pricing-tag">Business</span>
+
+            <h3>Business Website</h3>
+
+            <div class="featured-price">₦250k+</div>
+
+            <ul class="pricing-features">
+              <li>✔ Premium UI Design</li>
+              <li>✔ SEO Optimization</li>
+              <li>✔ Admin Dashboard</li>
+              <li>✔ Mobile Optimization</li>
+              <li>✔ Support Included</li>
+            </ul>
+
+            <button
+              class="btn-primary pricing-btn"
+              data-package="Business Website"
+            >
+              Start Project
+            </button>
+          </div>
+
+          <!-- ADVANCED -->
+          <div class="pricing-card fade-up">
+            <span class="pricing-tag">Advanced</span>
+
+            <h3>E-Commerce Store</h3>
+
+            <div class="featured-price">₦400k+</div>
+
+            <ul class="pricing-features">
+              <li>✔ Product System</li>
+              <li>✔ Cart & Checkout</li>
+              <li>✔ Payment Integration</li>
+              <li>✔ Inventory Features</li>
+              <li>✔ Premium Performance</li>
+            </ul>
+
+            <button
+              class="btn-primary pricing-btn"
+              data-package="E-Commerce Store"
+            >
+              Book Now
+            </button>
           </div>
         </div>
       </div>
@@ -302,27 +394,43 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
+          <!-- BRAND -->
           <div class="footer-brand">
             <h4>LAOLAK</h4>
-            <p>Your digital partner.</p>
+            <p>
+              Your trusted partner for gadget repairs, sales, and digital
+              solutions.
+            </p>
           </div>
 
+          <!-- LINKS -->
           <div class="footer-links">
-            <h5>Links</h5>
-            <a href="index.html">Home</a>
-            <a href="repair.html">Repair</a>
-            <a href="sales.html">Sales</a>
+            <h5>Quick Links</h5>
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#">Portfolio</a>
+            <a href="contact.html">Contact</a>
           </div>
 
+          <!-- SERVICES -->
+          <div class="footer-links">
+            <h5>Services</h5>
+            <a href="repair.html">Phone Repair</a>
+            <a href="gadget-sales.html">Gadget Sales</a>
+            <a href="web.html">Web Development</a>
+          </div>
+
+          <!-- CONTACT -->
           <div class="footer-contact">
             <h5>Contact</h5>
             <p>📞 +234 906 067 6932</p>
-            <p>📍 Ibadan</p>
+            <p>📧 akinolalawal1804@gmail.com</p>
+            <p>📍 Ibadan, Nigeria</p>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p>© 2026 LAOLAK</p>
+          <p>© 2026 LAOLAK. All rights reserved.</p>
         </div>
       </div>
     </footer>
