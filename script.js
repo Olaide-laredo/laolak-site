@@ -387,4 +387,16 @@ Please give me more details.`;
   counters.forEach((counter) => {
     counterObserver.observe(counter);
   });
+
+  /* ================= HERO PARALLAX ================= */
+
+  const hero = document.querySelector(".hero");
+
+  window.addEventListener("scroll", () => {
+    if (hero) {
+      const scrollY = window.scrollY;
+
+      hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
+    }
+  });
 });

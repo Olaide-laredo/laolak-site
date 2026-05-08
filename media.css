@@ -133,88 +133,35 @@
 /*  HERO
 /* ===================== */
 
-@media (max-width: 1024px) {
-  .hero-content {
-    gap: 1.5rem;
-  }
+/* ================= HERO ================= */
 
+@media (max-width: 900px) {
   .hero-text h1 {
-    font-size: 2.6rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .hero-text h1 {
-    font-size: 2.3rem;
-  }
-
-  .hero-text p {
-    font-size: 0.95rem;
+    font-size: 3.2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .hero-content {
-    flex-direction: column;
+  .hero {
     text-align: center;
   }
 
-  .hero-text,
-  .hero-image {
-    width: 100%;
-  }
-
-  .hero-image {
-    margin-top: 1.5rem;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
   .hero-text h1 {
-    font-size: 2rem;
-    justify-self: center;
-  }
-}
+    font-size: 2.5rem;
 
-@media (max-width: 600px) {
-  .hero {
-    padding: 4rem 0;
-  }
-
-  .hero-text h1 {
-    font-size: 1.8rem;
+    letter-spacing: -1px;
   }
 
   .hero-text p {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-text h1 {
-    font-size: 1.6rem;
+    font-size: 1rem;
   }
 
   .hero-buttons {
     flex-direction: column;
-    gap: 0.7rem;
   }
 
-  .hero-buttons button {
-    width: 100%;
-  }
-}
-
-@media (max-width: 360px) {
-  .hero-text h1 {
-    font-size: 1.4rem;
-  }
-
-  .hero-text p {
-    font-size: 0.85rem;
+  .hero-glow {
+    opacity: 0.2;
   }
 }
 
@@ -772,5 +719,70 @@
 
   .case-buttons {
     flex-direction: column;
+  }
+}
+
+/* ================= ABOUT PAGE ================= */
+
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+  }
+
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-hero-text h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    text-align: center;
+  }
+
+  .about-hero-text h1 {
+    font-size: 2.6rem;
+
+    letter-spacing: -1px;
+  }
+
+  .about-text h2 {
+    font-size: 2.2rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    padding-left: 55px;
+  }
+
+  .about-cta h2 {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .mission-card,
+  .value-item,
+  .timeline-content {
+    padding: 1.5rem;
+  }
+
+  .about-hero-text p,
+  .about-text p,
+  .mission-card p,
+  .timeline-content p {
+    font-size: 0.95rem;
   }
 }
