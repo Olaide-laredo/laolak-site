@@ -399,4 +399,53 @@ Please give me more details.`;
       hero.style.backgroundPositionY = `${scrollY * 0.4}px`;
     }
   });
+
+  /* ================= FAQ ACCORDION ================= */
+
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".faq-question");
+
+    question.addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
+  });
+
+  /* ================= SUPPORT FORM ================= */
+
+  const supportForm = document.querySelector("#supportForm");
+
+  if (supportForm) {
+    supportForm.addEventListener(
+      "submit",
+
+      function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById("supportName").value;
+
+        const phone = document.getElementById("supportPhone").value;
+
+        const category = document.getElementById("supportCategory").value;
+
+        const messageInput = document.getElementById("supportMessage").value;
+
+        const message = `Hello LAOLAK Support 👋
+
+Name: ${name}
+
+Phone: ${phone}
+
+Category: ${category}
+
+Issue:
+${messageInput}`;
+
+        const url = `https://wa.me/2349060676932?text=${encodeURIComponent(message)}`;
+
+        window.open(url, "_blank");
+      },
+    );
+  }
 });

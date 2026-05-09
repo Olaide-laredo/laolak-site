@@ -786,3 +786,218 @@
     font-size: 0.95rem;
   }
 }
+
+/* ================ */
+/* ==== FAQ ===== */
+/* =============== */
+
+@media (max-width: 992px) {
+  .faq-hero-text h1 {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-hero {
+    text-align: center;
+  }
+
+  .faq-hero-text h1 {
+    font-size: 2.5rem;
+
+    letter-spacing: -1px;
+  }
+
+  .faq-question {
+    padding: 1.3rem 1.5rem;
+  }
+
+  .faq-answer p {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .faq-cta h2 {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .faq-question h3 {
+    font-size: 1rem;
+  }
+
+  .faq-hero-text p,
+  .faq-answer p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ==== SUPPORT PAGE ===== */
+/* ==== SUPPORT PAGE ===== */
+
+@media (max-width: 992px) {
+  .support-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-line {
+    grid-template-columns: 1fr;
+  }
+
+  .support-contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .support-hero-text h1 {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .support-hero {
+    text-align: center;
+  }
+
+  .support-hero-text h1 {
+    font-size: 2.5rem;
+
+    letter-spacing: -1px;
+  }
+
+  .support-contact-text h2 {
+    font-size: 2.3rem;
+  }
+
+  .support-cta h2 {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .support-card,
+  .support-form-box {
+    padding: 1.5rem;
+  }
+
+  .support-hero-text p,
+  .support-contact-text p,
+  .support-card p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ================= TIPS PAGE ================= */
+
+@media (max-width: 992px) {
+  .featured-tip-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tips-hero-text h1 {
+    font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tips-hero {
+    text-align: center;
+  }
+
+  .tips-hero-text h1 {
+    font-size: 2.5rem;
+
+    letter-spacing: -1px;
+  }
+
+  .featured-tip-text h2 {
+    font-size: 2.2rem;
+  }
+
+  .tips-cta h2 {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .tip-content,
+  .featured-tip-text {
+    padding: 0;
+  }
+
+  .tips-hero-text p,
+  .featured-tip-text p,
+  .tip-content p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ================= TIPS TEXT ================= */
+
+@media (max-width: 768px) {
+  .tips-category h3 {
+    font-size: 1.6rem;
+  }
+
+  .tip-line {
+    padding: 1rem 1.2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .tip-line {
+    font-size: 0.95rem;
+
+    line-height: 1.7;
+  }
+}
+
+/* ================= NEWS PAGE ================= */
+
+@media (max-width: 992px) {
+  .news-hero-text h1 {
+    font-size: 3.2rem;
+  }
+
+  .featured-news-box h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-hero {
+    text-align: center;
+  }
+
+  .news-hero-text h1 {
+    font-size: 2.5rem;
+
+    letter-spacing: -1px;
+  }
+
+  .featured-news-box {
+    padding: 2rem;
+  }
+
+  .featured-news-box h2 {
+    font-size: 2rem;
+  }
+
+  .news-line h3 {
+    font-size: 1.2rem;
+  }
+
+  .news-cta h2 {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .news-hero-text p,
+  .featured-news-box p {
+    font-size: 0.95rem;
+  }
+}
