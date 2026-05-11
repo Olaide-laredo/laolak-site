@@ -3,7 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phone Repair | LAOLAK</title>
+    <title>Phone & Laptop Repairs | LAOLAK Technologies</title>
+
+    <meta
+      name="description"
+      content="Professional phone and laptop repair services with trusted technicians and quality parts."
+    />
+
+    <meta
+      name="keywords"
+      content="phone repair, laptop repair, screen replacement, battery replacement, LAOLAK Technologies"
+    />
+
+    <meta name="author" content="LAOLAK Technologies" />
+
+    <meta
+      property="og:title"
+      content="Phone & Laptop Repairs | LAOLAK Technologies"
+    />
+
+    <meta
+      property="og:description"
+      content="Trusted repair services for phones and laptops with premium support."
+    />
+
+    <meta property="og:image" content="images/og-image.jpg" />
+
+    <meta property="og:type" content="website" />
 
     <!-- Fonts -->
     <link
@@ -17,6 +43,7 @@
   </head>
 
   <body>
+    <div class="page-transition"></div>
     <!-- ================= LOADER ================= -->
 
     <div class="loader">
@@ -31,7 +58,7 @@
     <header class="header">
       <div class="container header-content">
         <a href="index.html">
-          <div class="logo">LAOLAK</div>
+          <div class="logo magnetic-btn">LAOLAK</div>
         </a>
 
         <!-- NAV LINKS -->
@@ -65,7 +92,7 @@
 
         <!-- RIGHT SIDE -->
         <div class="nav-right">
-          <a href="contact.html" class="btn-primary">Contact Us</a>
+          <a href="contact.html" class="btn-primary magnetic-btn">Contact Us</a>
 
           <!-- HAMBURGER -->
           <div class="hamburger">
@@ -91,16 +118,18 @@
     </header>
     <!-- ================= HERO ================= -->
 
-    <section class="repair-hero">
+    <section class="repair-hero premium-hover parallax-bg">
       <div class="repair-hero-overlay"></div>
       <div class="container repair-hero-content fade-up">
-        <h1>Fast & Reliable Phone Repairs</h1>
+        <h1 class="reveal-text">Fast & Reliable Phone Repairs</h1>
         <p>
           We fix screens, batteries, charging issues, and more — quickly and
           professionally.
         </p>
         <div class="hero-buttons">
-          <a href="#repair-form" class="btn-primary">Book A Repair</a>
+          <a href="#repair-form" class="btn-primary magnetic-btn"
+            >Book A Repair</a
+          >
         </div>
       </div>
     </section>
@@ -108,7 +137,7 @@
     <!-- ================= SERVICES ================= -->
     <section class="repair-services section">
       <div class="container">
-        <h2>What We Fix</h2>
+        <h2 class="reveal-text">What We Fix</h2>
 
         <div class="repair-grid">
           <!-- 1 -->
@@ -216,7 +245,7 @@
     <!-- ================= FORM ================= -->
     <section class="repair-form section" id="repair-form">
       <div class="container">
-        <h2>Book a Repair</h2>
+        <h2 class="reveal-text">Book a Repair</h2>
 
         <form id="repairForm">
           <input type="text" id="repairName" placeholder="Your Name" required />
@@ -235,7 +264,9 @@
             required
           ></textarea>
 
-          <button type="submit" class="btn-primary">Send to WhatsApp</button>
+          <button type="submit" class="btn-primary magnetic-btn">
+            Send to WhatsApp
+          </button>
         </form>
       </div>
     </section>

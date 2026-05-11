@@ -3,7 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Development | LAOLAK</title>
+    <title>Web Development Services | LAOLAK Technologies</title>
+
+    <meta
+      name="description"
+      content="Modern website design and development services for businesses and brands."
+    />
+
+    <meta
+      name="keywords"
+      content="web design, web development, business websites, frontend development, LAOLAK Technologies"
+    />
+
+    <meta name="author" content="LAOLAK Technologies" />
+
+    <meta
+      property="og:title"
+      content="Web Development Services | LAOLAK Technologies"
+    />
+
+    <meta
+      property="og:description"
+      content="Premium web design and development services for modern businesses."
+    />
+
+    <meta property="og:image" content="images/og-image.jpg" />
+
+    <meta property="og:type" content="website" />
 
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
@@ -14,6 +40,8 @@
   </head>
 
   <body>
+    <div class="page-transition"></div>
+
     <!-- ================= LOADER ================= -->
 
     <div class="loader">
@@ -27,7 +55,7 @@
     <header class="header">
       <div class="container header-content">
         <a href="index.html">
-          <div class="logo">LAOLAK</div>
+          <div class="logo magnetic-btn">LAOLAK</div>
         </a>
 
         <!-- NAV LINKS -->
@@ -61,7 +89,7 @@
 
         <!-- RIGHT SIDE -->
         <div class="nav-right">
-          <a href="contact.html" class="btn-primary">Contact Us</a>
+          <a href="contact.html" class="btn-primary magnetic-btn">Contact Us</a>
 
           <!-- HAMBURGER -->
           <div class="hamburger">
@@ -87,15 +115,19 @@
     </header>
 
     <!-- ================= HERO ================= -->
-    <section class="web-hero">
+    <section class="web-hero premium-hover parallax-bg">
       <div class="container web-hero-content">
         <div class="hero-text">
-          <h1>We Build Websites That Make You Money</h1>
+          <h1 class="reveal-text">We Build Websites That Make You Money</h1>
           <p>Modern • Fast • Mobile Optimized • Conversion Focused</p>
 
           <div class="hero-buttons">
-            <a href="#web-form" class="btn-primary">Start a Project</a>
-            <a href="portfolio.html" class="btn-secondary">View Portfolio</a>
+            <a href="#web-form" class="btn-primary magnetic-btn"
+              >Start a Project</a
+            >
+            <a href="portfolio.html" class="btn-secondary magnetic-btn"
+              >View Portfolio</a
+            >
           </div>
         </div>
       </div>
@@ -105,7 +137,7 @@
     <section class="services section">
       <div class="container">
         <div class="services-box">
-          <h2>What We Build</h2>
+          <h2 class="reveal-text">What We Build</h2>
 
           <div class="services-grid">
             <!-- CARD -->
@@ -220,7 +252,7 @@
       <div class="container">
         <!-- RIGHT -->
         <div class="web-promo">
-          <h2 class="web-title">Why Businesses Choose LAOLAK</h2>
+          <h2 class="web-title reveal-text">Why Businesses Choose LAOLAK</h2>
 
           <div class="web-steps">
             <div class="web-step fade-up">
@@ -239,7 +271,9 @@
             </div>
           </div>
           <div class="portfolio-btn">
-            <a href="portfolio.html" class="btn-primary"> View Portfolio </a>
+            <a href="portfolio.html" class="btn-primary magnetic-btn">
+              View Portfolio
+            </a>
           </div>
         </div>
       </div>
@@ -274,7 +308,7 @@
     <section class="pricing section">
       <div class="container">
         <div class="section-header">
-          <h2>Website Packages</h2>
+          <h2 class="reveal-text">Website Packages</h2>
           <p>Flexible packages for brands, businesses and startups.</p>
         </div>
 
@@ -359,7 +393,7 @@
     <section class="cta section" id="web-form">
       <div class="container">
         <div class="cta-box">
-          <h2>Start Your Project</h2>
+          <h2 class="reveal-text">Start Your Project</h2>
           <p>Tell us what you want and we’ll bring it to life.</p>
 
           <form id="webForm" class="request-form">
@@ -384,7 +418,9 @@
               required
             ></textarea>
 
-            <button type="submit" class="btn-primary">Send via WhatsApp</button>
+            <button type="submit" class="btn-primary magnetic-btn">
+              Send via WhatsApp
+            </button>
           </form>
         </div>
       </div>

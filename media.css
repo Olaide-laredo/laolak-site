@@ -787,6 +787,34 @@
   }
 }
 
+/* =========================
+   DARK ABOUT PAGE
+========================= */
+
+@media (max-width: 992px) {
+  .dark-about .about-hero h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dark-about .about-hero {
+    text-align: center;
+  }
+
+  .dark-about .about-hero h1 {
+    font-size: 2.8rem;
+
+    letter-spacing: -2px;
+  }
+}
+
+@media (max-width: 500px) {
+  .dark-about .about-hero h1 {
+    font-size: 2.2rem;
+  }
+}
+
 /* ================ */
 /* ==== FAQ ===== */
 /* =============== */
@@ -870,6 +898,20 @@
 
   .support-cta h2 {
     font-size: 2.3rem;
+  }
+
+  .support-line {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .support-text h3,
+  .process-line h3 {
+    font-size: 1.3rem;
+  }
+
+  .process-line {
+    padding-left: 2rem;
   }
 }
 
@@ -999,5 +1041,31 @@
   .news-hero-text p,
   .featured-news-box p {
     font-size: 0.95rem;
+  }
+}
+
+/* =========================
+   CURSOR DISABLE MOBILE
+========================= */
+
+@media (max-width: 992px) {
+  .custom-cursor {
+    display: none;
+  }
+
+  body,
+  a,
+  button {
+    cursor: auto;
+  }
+}
+
+/* =========================
+   MOBILE PERFORMANCE
+========================= */
+
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll !important;
   }
 }

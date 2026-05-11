@@ -3,13 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gadget Sales - LAOLAK</title>
+    <title>Gadget Sales | LAOLAK Technologies</title>
 
+    <meta
+      name="description"
+      content="Buy premium phones, laptops and accessories from LAOLAK Technologies."
+    />
+
+    <meta
+      name="keywords"
+      content="phones, laptops, accessories, gadget sales, LAOLAK Technologies"
+    />
+
+    <meta name="author" content="LAOLAK Technologies" />
+
+    <meta property="og:title" content="Gadget Sales | LAOLAK Technologies" />
+
+    <meta
+      property="og:description"
+      content="Explore premium gadgets, smartphones, laptops and accessories."
+    />
+
+    <meta property="og:image" content="images/og-image.jpg" />
+
+    <meta property="og:type" content="website" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="media.css" />
   </head>
 
   <body>
+    <div class="page-transition"></div>
     <!-- ================= LOADER ================= -->
 
     <div class="loader">
@@ -24,7 +47,7 @@
     <header class="header">
       <div class="container header-content">
         <a href="index.html">
-          <div class="logo">LAOLAK</div>
+          <div class="logo magnetic-btn">LAOLAK</div>
         </a>
 
         <!-- NAV LINKS -->
@@ -58,7 +81,7 @@
 
         <!-- RIGHT SIDE -->
         <div class="nav-right">
-          <a href="contact.html" class="btn-primary">Contact Us</a>
+          <a href="contact.html" class="btn-primary magnetic-btn">Contact Us</a>
 
           <!-- HAMBURGER -->
           <div class="hamburger">
@@ -84,16 +107,16 @@
     </header>
 
     <!-- HERO -->
-    <section class="sales-hero">
+    <section class="sales-hero premium-hover parallax-bg">
       <div class="sales-overlay"></div>
 
       <div class="container sales-hero-content fade-up">
-        <h1>Premium Gadgets You Can Trust</h1>
+        <h1 class="reveal-text">Premium Gadgets You Can Trust</h1>
         <p>Phones • Laptops • Accessories — Tested & Verified</p>
 
         <div class="hero-buttons">
-          <a href="#products" class="btn-primary">Shop Now</a>
-          <a href="#request" class="btn-secondary">Make Inquiry</a>
+          <a href="#products" class="btn-primary magnetic-btn">Shop Now</a>
+          <a href="#request" class="btn-secondary magnetic-btn">Make Inquiry</a>
         </div>
       </div>
     </section>
@@ -101,7 +124,7 @@
     <!-- PRODUCTS -->
     <section id="products" class="products section">
       <div class="container">
-        <h2>Featured Products</h2>
+        <h2 class="reveal-text">Featured Products</h2>
 
         <div class="products-grid">
           <!-- PRODUCT CARD -->
@@ -423,7 +446,7 @@
 
     <section id="request" class="request section">
       <div class="container">
-        <h2>Can't Find What You Want?</h2>
+        <h2 class="reveal-text">Can't Find What You Want?</h2>
         <p>Tell us exactly what you need.</p>
 
         <form id="productRequestForm" class="request-form">
@@ -514,12 +537,14 @@
     <section class="cta section">
       <div class="container">
         <div class="cta-box">
-          <h2>Ready to Get Your Gadget?</h2>
+          <h2 class="reveal-text">Ready to Get Your Gadget?</h2>
           <p>Chat with us instantly and secure your device today.</p>
 
           <div class="cta-buttons">
-            <a href="#request" class="btn-primary">Buy Now</a>
-            <a href="contact.html" class="btn-secondary">Contact Us</a>
+            <a href="#request" class="btn-primary magnetic-btn">Buy Now</a>
+            <a href="contact.html" class="btn-secondary magnetic-btn"
+              >Contact Us</a
+            >
           </div>
         </div>
       </div>

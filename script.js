@@ -448,4 +448,152 @@ ${messageInput}`;
       },
     );
   }
+
+  /* =========================
+   PAGE TRANSITIONS
+========================= */
+
+  const transition = document.querySelector(".page-transition");
+
+  document.querySelectorAll("a").forEach((link) => {
+    const href = link.getAttribute("href");
+
+    if (
+      href &&
+      !href.startsWith("#") &&
+      !href.startsWith("http") &&
+      !link.hasAttribute("target")
+    ) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        transition.classList.add("active");
+
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, 700);
+      });
+    }
+  });
+
+  /* RESET TRANSITION */
+
+  window.addEventListener("pageshow", () => {
+    if (transition) {
+      transition.classList.remove("active");
+    }
+
+    document.body.classList.remove("fade-out");
+  });
+
+  /* =========================
+   PARALLAX SCROLL
+========================= */
+
+  const parallaxBg = document.querySelectorAll(".parallax-bg");
+
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+
+    parallaxBg.forEach((section) => {
+      section.style.backgroundPositionY = `${scrollY * 0.5}px`;
+    });
+  });
+
+  /* =========================
+   MOUSE PARALLAX
+========================= */
+
+  const heroImages = document.querySelectorAll(".parallax-image");
+
+  heroImages.forEach((img) => {
+    window.addEventListener("mousemove", (e) => {
+      const x = (window.innerWidth / 2 - e.clientX) / 40;
+
+      const y = (window.innerHeight / 2 - e.clientY) / 40;
+
+      img.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  });
+
+  /* =========================
+   MAGNETIC BUTTONS
+========================= */
+
+  const magneticButtons = document.querySelectorAll(".magnetic-btn");
+
+  magneticButtons.forEach((button) => {
+    button.addEventListener("mousemove", (e) => {
+      const rect = button.getBoundingClientRect();
+
+      const x = e.clientX - rect.left - rect.width / 2;
+
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      button.style.transform = `translate(${x * 0.15}px, ${y * 0.25}px)`;
+    });
+
+    button.addEventListener("mouseleave", () => {
+      button.style.transform = "translate(0px, 0px)";
+    });
+  });
+
+  /* =========================
+   TEXT REVEAL
+========================= */
+
+  const revealTexts = document.querySelectorAll(".reveal-text");
+
+  revealTexts.forEach((text) => {
+    const words = text.textContent.trim().split(" ");
+
+    text.innerHTML = "";
+
+    words.forEach((word, index) => {
+      const span = document.createElement("span");
+
+      span.classList.add("word");
+
+      span.style.transitionDelay = `${index * 0.08}s`;
+
+      span.textContent = word + " ";
+
+      text.appendChild(span);
+    });
+  });
+
+  /* INTERSECTION OBSERVER */
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    },
+    {
+      threshold: 0.3,
+    },
+  );
+
+  revealTexts.forEach((text) => {
+    revealObserver.observe(text);
+  });
+
+  /* =========================
+   DYNAMIC NAVBAR
+========================= */
+
+  const header = document.querySelector(".header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
 });
