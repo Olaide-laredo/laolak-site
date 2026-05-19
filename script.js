@@ -1,10 +1,10 @@
-console.log("JS is fully connected ✅");
+﻿console.log("JS is fully connected");
 /* =========================
    LAOLAK MASTER JS (FINAL)
 ========================= */
 
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("JS Loaded ✅");
+    console.log("JS Loaded");
 
   /* =========================
      HAMBURGER MENU
@@ -20,6 +20,42 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   /* =========================
+     SMART CONTACT ROUTING
+  ========================= */
+  const pageServiceMap = {
+    "repair.html": "Phone Repair",
+    "gadget-sales.html": "Gadget Purchase",
+    "web.html": "Web Development",
+  };
+
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const mappedService = pageServiceMap[currentPage];
+
+  if (mappedService) {
+    document.querySelectorAll('a[href="contact.html"]').forEach((link) => {
+      link.href = `contact.html?service=${encodeURIComponent(mappedService)}`;
+    });
+  }
+
+  /* =========================
+     MOBILE QUICK BAR
+  ========================= */
+  if (!document.querySelector(".mobile-quick-bar")) {
+    const quoteLink = mappedService
+      ? `contact.html?service=${encodeURIComponent(mappedService)}`
+      : "contact.html";
+
+    const quickBar = document.createElement("div");
+    quickBar.className = "mobile-quick-bar";
+    quickBar.innerHTML = `
+      <a class="mobile-quick-link" href="tel:+2349060676932">Call Now</a>
+      <a class="mobile-quick-link primary" href="https://wa.me/2349060676932" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="mobile-quick-link" href="${quoteLink}">Get Quote</a>
+    `;
+    document.body.appendChild(quickBar);
+  }
+
+  /* =========================
      BOOK PRODUCT BUTTON
   ========================= */
   const bookButtons = document.querySelectorAll(".book-btn");
@@ -29,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       btn.addEventListener("click", () => {
         const product = btn.dataset.product || "Product";
 
-        const message = `Hello LAOLAK 👋
+        const message = `Hello LAOLAK
 I want to book this product:
 ${product}`;
 
@@ -44,6 +80,18 @@ ${product}`;
      CONTACT FORM
   ========================= */
   const contactForm = document.querySelector("#contactForm");
+  const serviceSelect = document.getElementById("service");
+
+  if (serviceSelect) {
+    const serviceParam = new URLSearchParams(window.location.search).get(
+      "service",
+    );
+    const allowedValues = ["Phone Repair", "Gadget Purchase", "Web Development"];
+
+    if (serviceParam && allowedValues.includes(serviceParam)) {
+      serviceSelect.value = serviceParam;
+    }
+  }
 
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
@@ -51,10 +99,10 @@ ${product}`;
 
       const name = document.getElementById("contactName").value;
       const phone = document.getElementById("contactPhone").value;
-      const service = document.getElementById("service").value;
+      const service = serviceSelect ? serviceSelect.value : "";
       const messageInput = document.getElementById("contactMessage").value;
 
-      const message = `Hello LAOLAK 👋
+      const message = `Hello LAOLAK
 Contact Request:
 
 Name: ${name}
@@ -81,7 +129,7 @@ Message: ${messageInput}`;
       const issue = document.getElementById("repairIssue").value;
       const messageInput = document.getElementById("repairMessage").value;
 
-      const message = `Hello LAOLAK 🔧
+      const message = `Hello LAOLAK
 Repair Request:
 
 Name: ${name}
@@ -108,7 +156,7 @@ Details: ${messageInput}`;
       const model = document.getElementById("model").value;
       const description = document.getElementById("description").value;
 
-      const message = `Hello LAOLAK 📦
+      const message = `Hello LAOLAK
 Product Request:
 
 Category: ${category}
@@ -123,7 +171,7 @@ Details: ${description}`;
   }
 
   /* =========================
-     CATEGORY → BRAND SWITCH
+     CATEGORY -> BRAND SWITCH
   ========================= */
   const categorySelect = document.getElementById("category");
   const brandSelect = document.getElementById("brand");
@@ -171,6 +219,80 @@ Details: ${description}`;
     faders.forEach((el) => observer.observe(el));
   }
 
+  /* ================= WHY HOME SLIDER DOTS ================= */
+
+  const whySlider = document.querySelector(".why-home .why-right-grid");
+  const whyCards = whySlider
+    ? Array.from(whySlider.querySelectorAll(".why-mini-card"))
+    : [];
+  const whyDots = Array.from(
+    document.querySelectorAll(".why-home .why-slider-dots .why-dot"),
+  );
+  const whySliderMq = window.matchMedia("(max-width: 820px)");
+
+  if (whySlider && whyCards.length > 0 && whyDots.length > 0) {
+    const setActiveDot = (index) => {
+      whyDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("active", dotIndex === index);
+      });
+    };
+
+    const closestCardIndex = () => {
+      const currentScroll = whySlider.scrollLeft;
+
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      whyCards.forEach((card, index) => {
+        const distance = Math.abs(card.offsetLeft - currentScroll);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+      });
+
+      return closestIndex;
+    };
+
+    whySlider.addEventListener(
+      "scroll",
+      () => {
+        if (!whySliderMq.matches) return;
+        setActiveDot(closestCardIndex());
+      },
+      { passive: true },
+    );
+
+    whyDots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        const target = whyCards[index];
+        if (!target) return;
+
+        whySlider.scrollTo({
+          left: target.offsetLeft,
+          behavior: "smooth",
+        });
+
+        setActiveDot(index);
+      });
+    });
+
+    const syncDotsOnResize = () => {
+      if (!whySliderMq.matches) {
+        setActiveDot(0);
+      } else {
+        setActiveDot(closestCardIndex());
+      }
+    };
+
+    syncDotsOnResize();
+    if (whySliderMq.addEventListener) {
+      whySliderMq.addEventListener("change", syncDotsOnResize);
+    } else if (whySliderMq.addListener) {
+      whySliderMq.addListener(syncDotsOnResize);
+    }
+  }
+
   /* ================= WEB FORM ================= */
 
   const webForm = document.querySelector("#webForm");
@@ -184,7 +306,7 @@ Details: ${description}`;
       const type = document.getElementById("webType").value;
       const details = document.getElementById("webDetails").value;
 
-      const message = `Hello LAOLAK 💻
+      const message = `Hello LAOLAK
 Web Project Request:
 
 Name: ${name}
@@ -204,7 +326,7 @@ Details: ${details}`;
     btn.addEventListener("click", () => {
       const packageName = btn.dataset.package;
 
-      const message = `Hello LAOLAK 💻
+      const message = `Hello LAOLAK
 
 I am interested in your:
 ${packageName}
@@ -260,53 +382,53 @@ Please give me more details.`;
 
   const portfolioButtons = document.querySelectorAll(".portfolio-view-btn");
 
-  portfolioButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const title = btn.dataset.title;
+  if (
+    portfolioModal &&
+    modalImage &&
+    modalTitle &&
+    modalCategory &&
+    modalDescription &&
+    livePreviewBtn
+  ) {
+    portfolioButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const title = btn.dataset.title;
+        const category = btn.dataset.category;
+        const description = btn.dataset.description;
+        const image = btn.dataset.image;
+        const link = btn.dataset.link;
 
-      const category = btn.dataset.category;
+        modalTitle.textContent = title;
+        modalCategory.textContent = category;
+        modalDescription.textContent = description;
+        modalImage.style.backgroundImage = `url(${image})`;
+        livePreviewBtn.href = link;
 
-      const description = btn.dataset.description;
-
-      const image = btn.dataset.image;
-      const link = btn.dataset.link;
-
-      modalTitle.textContent = title;
-
-      modalCategory.textContent = category;
-
-      modalDescription.textContent = description;
-
-      modalImage.style.backgroundImage = `url(${image})`;
-      livePreviewBtn.href = link;
-
-      portfolioModal.classList.add("show");
+        portfolioModal.classList.add("show");
+      });
     });
-  });
 
-  /* CLOSE MODAL */
+    /* CLOSE MODAL */
+    if (modalClose) {
+      modalClose.addEventListener("click", () => {
+        portfolioModal.classList.remove("show");
+      });
+    }
 
-  if (modalClose) {
-    modalClose.addEventListener("click", () => {
-      portfolioModal.classList.remove("show");
+    /* CLICK OUTSIDE */
+    window.addEventListener("click", (e) => {
+      if (e.target === portfolioModal) {
+        portfolioModal.classList.remove("show");
+      }
+    });
+
+    /* ESC KEY */
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        portfolioModal.classList.remove("show");
+      }
     });
   }
-
-  /* CLICK OUTSIDE */
-
-  window.addEventListener("click", (e) => {
-    if (e.target === portfolioModal) {
-      portfolioModal.classList.remove("show");
-    }
-  });
-
-  /* ESC KEY */
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      portfolioModal.classList.remove("show");
-    }
-  });
 
   /* ================= LOADER ================= */
 
@@ -317,31 +439,6 @@ Please give me more details.`;
       setTimeout(() => {
         loader.classList.add("hide");
       }, 800);
-    }
-  });
-
-  /* ================= PAGE TRANSITIONS ================= */
-
-  const transitionLinks = document.querySelectorAll("a");
-
-  transitionLinks.forEach((link) => {
-    const href = link.getAttribute("href");
-
-    if (
-      href &&
-      !href.startsWith("#") &&
-      !href.startsWith("http") &&
-      !link.hasAttribute("target")
-    ) {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-
-        document.body.classList.add("page-leave");
-
-        setTimeout(() => {
-          window.location.href = href;
-        }, 400);
-      });
     }
   });
 
@@ -431,7 +528,7 @@ Please give me more details.`;
 
         const messageInput = document.getElementById("supportMessage").value;
 
-        const message = `Hello LAOLAK Support 👋
+        const message = `Hello LAOLAK
 
 Name: ${name}
 
@@ -467,7 +564,9 @@ ${messageInput}`;
       link.addEventListener("click", function (e) {
         e.preventDefault();
 
-        transition.classList.add("active");
+        if (transition) {
+          transition.classList.add("active");
+        }
 
         document.body.classList.add("fade-out");
 
@@ -597,3 +696,4 @@ ${messageInput}`;
     }
   });
 });
+
