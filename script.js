@@ -446,44 +446,59 @@ Please give me more details.`;
 
   const counters = document.querySelectorAll(".counter");
 
+  const animateCounter = (counter) => {
+    if (counter.dataset.animated === "true") return;
+
+    const target = Number(counter.dataset.target || 0);
+    const start = Number(counter.dataset.start || 0);
+    const duration = Number(counter.dataset.duration || 1400);
+    const decimals = Number(counter.dataset.decimals || 0);
+    const prefix = counter.dataset.prefix || "";
+    const suffix = counter.dataset.suffix || "";
+
+    if (Number.isNaN(target) || Number.isNaN(start)) return;
+
+    const formatValue = (value) =>
+      decimals > 0
+        ? value.toFixed(decimals)
+        : Math.floor(value).toLocaleString("en-US");
+
+    let startTime = null;
+    counter.dataset.animated = "true";
+
+    const tick = (time) => {
+      if (startTime === null) startTime = time;
+
+      const progress = Math.min((time - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = start + (target - start) * eased;
+
+      counter.textContent = `${prefix}${formatValue(value)}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        counter.textContent = `${prefix}${formatValue(target)}${suffix}`;
+      }
+    };
+
+    requestAnimationFrame(tick);
+  };
+
   const counterObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const counter = entry.target;
-
-          const target = +counter.dataset.target;
-
-          let current = 0;
-
-          const increment = target / 60;
-
-          const updateCounter = () => {
-            current += increment;
-
-            if (current < target) {
-              counter.textContent = Math.floor(current);
-
-              requestAnimationFrame(updateCounter);
-            } else {
-              counter.textContent = target;
-            }
-          };
-
-          updateCounter();
-
-          counterObserver.unobserve(counter);
-        }
+        if (!entry.isIntersecting) return;
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
       });
     },
     {
-      threshold: 0.5,
+      threshold: 0.45,
     },
   );
 
-  counters.forEach((counter) => {
-    counterObserver.observe(counter);
-  });
+  counters.forEach((counter) => counterObserver.observe(counter));
 
   /* ================= HERO PARALLAX ================= */
 
@@ -680,6 +695,107 @@ ${messageInput}`;
 
   revealTexts.forEach((text) => {
     revealObserver.observe(text);
+  });
+
+  /* =========================
+   HOMEPAGE PREMIUM SLIDER
+========================= */
+
+  const premiumSliders = document.querySelectorAll("[data-hx-slider]");
+
+  premiumSliders.forEach((slider) => {
+    const slides = Array.from(slider.querySelectorAll(".hx-slide"));
+    const dots = Array.from(slider.querySelectorAll(".hx-slide-dot"));
+    const prevBtn = slider.querySelector(".hx-slide-nav.prev");
+    const nextBtn = slider.querySelector(".hx-slide-nav.next");
+
+    if (slides.length === 0) return;
+
+    let currentIndex = 0;
+    let autoTimer = null;
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const setSlide = (newIndex) => {
+      const total = slides.length;
+      currentIndex = (newIndex + total) % total;
+
+      slides.forEach((slide, index) => {
+        slide.classList.toggle("active", index === currentIndex);
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle("active", index === currentIndex);
+      });
+    };
+
+    const goNext = () => setSlide(currentIndex + 1);
+    const goPrev = () => setSlide(currentIndex - 1);
+
+    const stopAuto = () => {
+      if (autoTimer) {
+        clearInterval(autoTimer);
+        autoTimer = null;
+      }
+    };
+
+    const startAuto = () => {
+      stopAuto();
+      autoTimer = setInterval(goNext, 4800);
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        goPrev();
+        startAuto();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        goNext();
+        startAuto();
+      });
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        setSlide(index);
+        startAuto();
+      });
+    });
+
+    slider.addEventListener("mouseenter", stopAuto);
+    slider.addEventListener("mouseleave", startAuto);
+
+    slider.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      },
+      { passive: true },
+    );
+
+    slider.addEventListener(
+      "touchend",
+      (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const delta = touchStartX - touchEndX;
+
+        if (Math.abs(delta) > 45) {
+          if (delta > 0) {
+            goNext();
+          } else {
+            goPrev();
+          }
+          startAuto();
+        }
+      },
+      { passive: true },
+    );
+
+    setSlide(0);
+    startAuto();
   });
 
   /* =========================
