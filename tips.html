@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#722410" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#722410" />
 
     <title>Tech Tips | LAOLAK Technologies</title>
     <link rel="icon" href="images/LT full logo.jpg" />
@@ -40,7 +40,7 @@
     <!-- LOADER -->
     <div class="loader">
       <div class="loader-content">
-        <h1>LAOLAK</h1>
+        <span class="brand-name">LAOLAK</span>
 
         <div class="loader-line"></div>
       </div>
@@ -130,7 +130,12 @@
       <div class="container featured-tip-grid">
         <!-- IMAGE -->
         <div class="featured-tip-image fade-up">
-          <img loading="lazy" decoding="async" src="images/tips.jpg" alt="Featured Tip" />
+          <img
+            loading="lazy"
+            decoding="async"
+            src="images/tips.jpg"
+            alt="Featured Tip"
+          />
         </div>
 
         <!-- TEXT -->
@@ -149,114 +154,224 @@
       </div>
     </section>
 
+    <section class="mp-section section tips-filter-hub">
+      <div class="container mp-shell fade-up">
+        <div class="mp-head">
+          <span class="mp-kicker">Category Filter</span>
+          <h2>Jump to the Tips You Need Now</h2>
+        </div>
+        <div class="mp-chip-wrap tips-jump-list" aria-label="Tip categories">
+          <a class="mp-chip" href="#battery-care">Battery Care</a>
+          <a class="mp-chip" href="#device-safety">Device Safety</a>
+          <a class="mp-chip" href="#buying-guide">Buying Guide</a>
+          <a class="mp-chip" href="#performance">Performance</a>
+          <a class="mp-chip" href="#website-growth">Website Growth</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ARTICLES -->
-    <!-- TIPS LIST -->
     <section class="tips-list-section section">
       <div class="container">
         <div class="section-header fade-up">
           <h2>Helpful Tech Tips</h2>
 
-          <p>
-            Quick practical tips to help you protect, maintain and maximize your
-            devices.
-          </p>
+          <p>Quick practical tips organized by the exact category you need.</p>
         </div>
 
-        <!-- PHONE / LAPTOP -->
-        <div class="tips-category fade-up">
-          <h3>Phone & Laptop Tips</h3>
+        <div class="tips-category fade-up" id="battery-care">
+          <h3>Battery Care</h3>
 
           <div class="tips-list">
             <div class="tip-line">
-              • Avoid overnight charging constantly to preserve battery
-              lifespan.
+              Avoid heat while charging because temperature damages battery
+              health faster than normal usage.
             </div>
 
             <div class="tip-line">
-              • Keep liquids away from charging ports and motherboard areas.
+              Unplug once your phone or laptop reaches full charge when you do
+              not need it connected.
             </div>
 
             <div class="tip-line">
-              • Restart your device occasionally for smoother performance.
+              Use trusted chargers with stable output to protect charging ICs
+              and battery cells.
             </div>
 
             <div class="tip-line">
-              • Avoid cheap chargers that damage charging IC components.
-            </div>
-
-            <div class="tip-line">
-              • Always update your software for security improvements.
-            </div>
-
-            <div class="tip-line">
-              • Excessive heat reduces battery efficiency over time.
+              Replace weak batteries early when swelling, sudden shutdowns, or
+              overheating starts.
             </div>
           </div>
         </div>
 
-        <!-- GADGET SALES -->
-        <div class="tips-category fade-up">
-          <h3>Gadget Buying Tips</h3>
+        <div class="tips-category fade-up" id="device-safety">
+          <h3>Device Safety</h3>
 
           <div class="tips-list">
             <div class="tip-line">
-              • Check battery health before buying fairly used phones.
+              Keep liquids away from charging ports, keyboard openings, speaker
+              grills, and motherboard areas.
             </div>
 
             <div class="tip-line">
-              • Confirm original screen condition before payment.
+              Use a protective case or sleeve when carrying phones and laptops
+              in bags.
             </div>
 
             <div class="tip-line">
-              • Always test Face ID, fingerprint and cameras.
+              Back up important files before repair, resets, or software
+              upgrades.
             </div>
 
             <div class="tip-line">
-              • Avoid devices with unknown repair history.
+              Update software regularly to reduce security risks and app
+              instability.
             </div>
-
-            <div class="tip-line">
-              • Compare storage variants before purchasing.
-            </div>
-
-            <div class="tip-line">• Verify accessories quality before use.</div>
           </div>
         </div>
 
-        <!-- WEB DEVELOPMENT -->
-        <div class="tips-category fade-up">
-          <h3>Web Development Tips</h3>
+        <div class="tips-category fade-up" id="buying-guide">
+          <h3>Buying Guide</h3>
 
           <div class="tips-list">
             <div class="tip-line">
-              • Every modern business should have a responsive website.
+              Check battery health, screen condition, cameras, sensors, and
+              network before buying fairly used phones.
             </div>
 
             <div class="tip-line">
-              • Fast websites improve customer trust and conversions.
+              Confirm laptop keyboard, ports, battery, SSD health, display, and
+              hinge condition before payment.
             </div>
 
             <div class="tip-line">
-              • Consistent branding increases professionalism online.
+              Avoid devices with unclear repair history or missing account
+              unlock confirmation.
             </div>
 
             <div class="tip-line">
-              • Mobile optimization is no longer optional.
+              Compare storage, battery, and warranty terms before choosing the
+              cheapest option.
+            </div>
+          </div>
+        </div>
+
+        <div class="tips-category fade-up" id="performance">
+          <h3>Performance</h3>
+
+          <div class="tips-list">
+            <div class="tip-line">
+              Restart your phone or laptop occasionally to clear stuck processes
+              and refresh memory.
             </div>
 
             <div class="tip-line">
-              • Good UI/UX improves user engagement significantly.
+              Remove unused apps and heavy background processes that slow daily
+              performance.
             </div>
 
             <div class="tip-line">
-              • SEO helps customers discover your business online.
+              Keep at least 15% storage free so the system can run smoothly.
+            </div>
+
+            <div class="tip-line">
+              Clean vents, fans, and ports when dust buildup starts affecting
+              cooling.
+            </div>
+          </div>
+        </div>
+
+        <div class="tips-category fade-up" id="website-growth">
+          <h3>Website Growth</h3>
+
+          <div class="tips-list">
+            <div class="tip-line">
+              Every modern business should have a fast, mobile-friendly website
+              with clear contact paths.
+            </div>
+
+            <div class="tip-line">
+              Put your strongest offer, proof, and WhatsApp action where users
+              can find them quickly.
+            </div>
+
+            <div class="tip-line">
+              Consistent branding, readable layouts, and real project photos
+              build trust faster.
+            </div>
+
+            <div class="tip-line">
+              SEO-friendly page titles and service content help customers find
+              your business online.
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
+    <section class="mp-section section tips-checklist-downloads">
+      <div class="container">
+        <div class="mp-head fade-up">
+          <span class="mp-kicker">Downloadable Checklists</span>
+          <h2>Simple Action Sheets for Everyday Tech Decisions</h2>
+        </div>
+        <div class="mp-grid mp-grid-3">
+          <article class="mp-card fade-up">
+            <h3>Device Buying Checklist</h3>
+            <p>Use before purchasing any new or fairly used device.</p>
+            <a href="#" class="mp-link">Download PDF</a>
+          </article>
+          <article class="mp-card fade-up">
+            <h3>Battery Health Checklist</h3>
+            <p>Daily actions that reduce long-term battery decline.</p>
+            <a href="#" class="mp-link">Download PDF</a>
+          </article>
+          <article class="mp-card fade-up">
+            <h3>Website Readiness Checklist</h3>
+            <p>Pre-launch quality checks for speed, UX, and trust flow.</p>
+            <a href="#" class="mp-link">Download PDF</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mp-section section tips-myth-fact-panel">
+      <div class="container">
+        <div class="mp-head fade-up">
+          <span class="mp-kicker">Myth vs Fact</span>
+          <h2>Clear Up Common Tech Misconceptions</h2>
+        </div>
+        <div class="mp-faq-mini">
+          <details class="mp-card fade-up">
+            <summary>
+              Myth: Overnight charging always destroys batteries.
+            </summary>
+            <p>
+              Fact: Smart charging systems manage current, but heat and poor
+              chargers still cause damage over time.
+            </p>
+          </details>
+          <details class="mp-card fade-up">
+            <summary>Myth: All fairly used gadgets are risky.</summary>
+            <p>
+              Fact: Verified testing and transparent condition grading
+              dramatically reduce risk.
+            </p>
+          </details>
+          <details class="mp-card fade-up">
+            <summary>
+              Myth: Any website design will convert if it looks good.
+            </summary>
+            <p>
+              Fact: Conversion depends on structure, clarity, and CTA hierarchy,
+              not visuals alone.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="tips-cta section">
       <div class="container tips-cta-content fade-up">
         <h2 class="reveal-text">Need Professional Assistance?</h2>
@@ -277,12 +392,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-

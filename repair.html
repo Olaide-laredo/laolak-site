@@ -49,7 +49,7 @@
 
     <div class="loader">
       <div class="loader-content">
-        <h1>LAOLAK</h1>
+        <span class="brand-name">LAOLAK</span>
 
         <div class="loader-line"></div>
       </div>
@@ -145,7 +145,7 @@
           <div class="repair-card fade-up">
             <div
               class="repair-bg"
-              style="background-image: url(images/cracked\ screen.png)"
+              style="background-image: url('images/cracked screen.png')"
             ></div>
             <div class="repair-overlay">
               <h3>Screen Repair</h3>
@@ -156,7 +156,7 @@
           <div class="repair-card fade-up">
             <div
               class="repair-bg"
-              style="background-image: url(images/battery\ damage.jpg)"
+              style="background-image: url('images/battery damage.jpg')"
             ></div>
             <div class="repair-overlay">
               <h3>Battery Replacement</h3>
@@ -167,7 +167,7 @@
           <div class="repair-card fade-up">
             <div
               class="repair-bg"
-              style="background-image: url(images/charging\ issue.png)"
+              style="background-image: url('images/charging issue.png')"
             ></div>
             <div class="repair-overlay">
               <h3>Charging Issue</h3>
@@ -178,7 +178,7 @@
           <div class="repair-card fade-up">
             <div
               class="repair-bg"
-              style="background-image: url(images/water\ damage.jpeg)"
+              style="background-image: url('images/water damage.jpeg')"
             ></div>
             <div class="repair-overlay">
               <h3>Water Damage</h3>
@@ -189,7 +189,7 @@
           <div class="repair-card fade-up">
             <div
               class="repair-bg"
-              style="background-image: url(images/motherboard\ issue.jpg)"
+              style="background-image: url('images/motherboard issue.jpg')"
             ></div>
             <div class="repair-overlay">
               <h3>Motherboard Repair</h3>
@@ -200,7 +200,7 @@
           <div class="repair-card fade-up">
             <div
               class="repair-bg"
-              style="background-image: url(images/cracked\ back\ glass.png)"
+              style="background-image: url('images/cracked back glass.png')"
             ></div>
             <div class="repair-overlay">
               <h3>Back Glass Repair</h3>
@@ -210,8 +210,101 @@
       </div>
     </section>
 
-    <!-- ================= PROCESS ================= -->
-    <section class="repair-process section">
+      <section class="mp-section section repair-estimator-panel">
+        <div class="container">
+          <div class="mp-head fade-up">
+            <span class="mp-kicker">Price Range Estimator</span>
+            <h2>Transparent Repair Ranges by Issue Type</h2>
+          </div>
+          <div class="mp-grid mp-grid-3">
+            <article class="mp-card fade-up">
+              <h3>Screen Repair</h3>
+              <p>Typical Range</p>
+              <strong>₦35,000 - ₦180,000</strong>
+            </article>
+            <article class="mp-card fade-up">
+              <h3>Battery Replacement</h3>
+              <p>Typical Range</p>
+              <strong>₦18,000 - ₦85,000</strong>
+            </article>
+            <article class="mp-card fade-up">
+              <h3>Board-Level Repairs</h3>
+              <p>Typical Range</p>
+              <strong>₦40,000 - ₦220,000</strong>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="mp-section section repair-warranty-panel">
+        <div class="container mp-coverage-layout">
+          <article class="mp-card mp-card-media fade-up">
+            <div
+              class="mp-media"
+              style="background-image: url('images/warranty support.jpeg')"
+            ></div>
+            <div class="mp-card-body">
+              <h3>Warranty on Repairs</h3>
+              <p>
+                Repairs are backed by structured support terms based on issue
+                category and replaced components.
+              </p>
+            </div>
+          </article>
+          <article class="mp-card fade-up">
+            <h3>Warranty Scope</h3>
+            <ul class="mp-list">
+              <li>Functional recheck after handover</li>
+              <li>Support follow-up within warranty window</li>
+              <li>Clear exclusions documented upfront</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="mp-section section repair-before-after">
+        <div class="container">
+          <div class="mp-head fade-up">
+            <span class="mp-kicker">Before and After Gallery</span>
+            <h2>Visible Device Recovery Outcomes</h2>
+          </div>
+          <div class="mp-grid mp-grid-3">
+            <article class="mp-card mp-card-media fade-up">
+              <div
+                class="mp-media"
+                style="background-image: url('images/rf-cracked-phone.jpg')"
+              ></div>
+              <div class="mp-card-body">
+                <h3>Screen Recovery</h3>
+                <p>From cracked display to clear calibrated finish.</p>
+              </div>
+            </article>
+            <article class="mp-card mp-card-media fade-up">
+              <div
+                class="mp-media"
+                style="background-image: url('images/rf-powerbank-charge-kit.jpg')"
+              ></div>
+              <div class="mp-card-body">
+                <h3>Power Restoration</h3>
+                <p>Charging-path diagnostics with stable current output.</p>
+              </div>
+            </article>
+            <article class="mp-card mp-card-media fade-up">
+              <div
+                class="mp-media"
+                style="background-image: url('images/rf-repair-diagnosis.jpg')"
+              ></div>
+              <div class="mp-card-body">
+                <h3>Board-Level Fix</h3>
+                <p>Precision trace and component restoration workflows.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PROCESS ================= -->
+      <section class="repair-process section">
       <div class="container">
         <h2>How It Works</h2>
 
@@ -241,10 +334,56 @@
           </div>
         </div>
       </div>
-    </section>
+      </section>
 
-    <!-- ================= FORM ================= -->
-    <section class="repair-form section" id="repair-form">
+      <section class="service-tracker section">
+        <div class="container">
+          <div class="tracker-shell fade-up">
+            <div class="tracker-head">
+              <span class="tracker-kicker">Repair Tracking</span>
+              <h2 class="reveal-text">Track Your Device Service Progress</h2>
+              <p>
+                Enter your tracking ID to see your current stage and expected
+                next action.
+              </p>
+            </div>
+
+            <form
+              class="tracker-form"
+              data-tracker-form
+              data-tracker-type="repair"
+            >
+              <input
+                type="text"
+                data-tracker-input
+                placeholder="Example: LT-RPR-1042"
+                autocomplete="off"
+                required
+              />
+              <button type="submit" class="btn-primary magnetic-btn">
+                Track Repair
+              </button>
+            </form>
+
+            <div class="tracker-result" data-tracker-result>
+              <p class="tracker-status">Enter your code to view live progress.</p>
+              <div class="tracker-bar">
+                <span class="tracker-fill" data-tracker-fill></span>
+              </div>
+              <div class="tracker-steps">
+                <span data-track-step="1">Intake</span>
+                <span data-track-step="2">Diagnosis</span>
+                <span data-track-step="3">Repair</span>
+                <span data-track-step="4">Ready</span>
+              </div>
+              <p class="tracker-meta" data-tracker-meta></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FORM ================= -->
+      <section class="repair-form section" id="repair-form">
       <div class="container">
         <h2 class="reveal-text">Book a Repair</h2>
 

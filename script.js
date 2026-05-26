@@ -1,11 +1,8 @@
-﻿console.log("JS is fully connected");
 /* =========================
    LAOLAK MASTER JS (FINAL)
 ========================= */
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("JS Loaded");
-
   /* =========================
      HAMBURGER MENU
   ========================= */
@@ -62,8 +59,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (bookButtons.length > 0) {
     bookButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const product = btn.dataset.product || "Product";
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const productCard = btn.closest(".product-card");
+        const productName =
+          btn.dataset.product ||
+          productCard?.querySelector("h4")?.textContent.trim() ||
+          "Product";
+        const price = productCard?.querySelector(".price")?.textContent.trim();
+        const product = price ? `${productName} (${price})` : productName;
 
         const message = `Hello LAOLAK
 I want to book this product:
@@ -75,6 +80,18 @@ ${product}`;
       });
     });
   }
+
+  /* =========================
+     TIPS CATEGORY JUMP STATE
+  ========================= */
+  const tipsJumpLinks = document.querySelectorAll(".tips-jump-list .mp-chip");
+
+  tipsJumpLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      tipsJumpLinks.forEach((item) => item.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
 
   /* =========================
      CONTACT FORM
@@ -219,80 +236,6 @@ Details: ${description}`;
     faders.forEach((el) => observer.observe(el));
   }
 
-  /* ================= WHY HOME SLIDER DOTS ================= */
-
-  const whySlider = document.querySelector(".why-home .why-right-grid");
-  const whyCards = whySlider
-    ? Array.from(whySlider.querySelectorAll(".why-mini-card"))
-    : [];
-  const whyDots = Array.from(
-    document.querySelectorAll(".why-home .why-slider-dots .why-dot"),
-  );
-  const whySliderMq = window.matchMedia("(max-width: 820px)");
-
-  if (whySlider && whyCards.length > 0 && whyDots.length > 0) {
-    const setActiveDot = (index) => {
-      whyDots.forEach((dot, dotIndex) => {
-        dot.classList.toggle("active", dotIndex === index);
-      });
-    };
-
-    const closestCardIndex = () => {
-      const currentScroll = whySlider.scrollLeft;
-
-      let closestIndex = 0;
-      let closestDistance = Infinity;
-
-      whyCards.forEach((card, index) => {
-        const distance = Math.abs(card.offsetLeft - currentScroll);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = index;
-        }
-      });
-
-      return closestIndex;
-    };
-
-    whySlider.addEventListener(
-      "scroll",
-      () => {
-        if (!whySliderMq.matches) return;
-        setActiveDot(closestCardIndex());
-      },
-      { passive: true },
-    );
-
-    whyDots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        const target = whyCards[index];
-        if (!target) return;
-
-        whySlider.scrollTo({
-          left: target.offsetLeft,
-          behavior: "smooth",
-        });
-
-        setActiveDot(index);
-      });
-    });
-
-    const syncDotsOnResize = () => {
-      if (!whySliderMq.matches) {
-        setActiveDot(0);
-      } else {
-        setActiveDot(closestCardIndex());
-      }
-    };
-
-    syncDotsOnResize();
-    if (whySliderMq.addEventListener) {
-      whySliderMq.addEventListener("change", syncDotsOnResize);
-    } else if (whySliderMq.addListener) {
-      whySliderMq.addListener(syncDotsOnResize);
-    }
-  }
-
   /* ================= WEB FORM ================= */
 
   const webForm = document.querySelector("#webForm");
@@ -319,6 +262,112 @@ Details: ${details}`;
       window.open(url, "_blank");
     });
   }
+
+  /* =========================
+     SERVICE / PROJECT TRACKER
+  ========================= */
+
+  const trackerData = {
+    repair: {
+      "LT-RPR-1042": {
+        step: 2,
+        progress: 45,
+        status: "Diagnosis in progress. Component checks ongoing.",
+        eta: "Ready in 18 hours",
+      },
+      "LT-RPR-1107": {
+        step: 3,
+        progress: 72,
+        status: "Repair in progress. Board-level fix underway.",
+        eta: "Ready in 9 hours",
+      },
+      "LT-RPR-1188": {
+        step: 4,
+        progress: 100,
+        status: "Service completed. Device ready for pickup.",
+        eta: "Available now",
+      },
+    },
+    web: {
+      "LT-WEB-2084": {
+        step: 2,
+        progress: 36,
+        status: "Strategy and content architecture in progress.",
+        eta: "Next milestone in 2 days",
+      },
+      "LT-WEB-2196": {
+        step: 3,
+        progress: 64,
+        status: "Frontend build in active production.",
+        eta: "Next milestone in 36 hours",
+      },
+      "LT-WEB-2260": {
+        step: 4,
+        progress: 88,
+        status: "Quality assurance and responsive testing in progress.",
+        eta: "Launch prep in 1 day",
+      },
+      "LT-WEB-2301": {
+        step: 5,
+        progress: 100,
+        status: "Project launched successfully.",
+        eta: "Live now",
+      },
+    },
+  };
+
+  const trackerForms = document.querySelectorAll("[data-tracker-form]");
+
+  const clearTrackerState = (scope) => {
+    const fill = scope.querySelector("[data-tracker-fill]");
+    const status = scope.querySelector(".tracker-status");
+    const meta = scope.querySelector("[data-tracker-meta]");
+    const steps = scope.querySelectorAll("[data-track-step]");
+
+    if (fill) fill.style.width = "0%";
+    if (status) status.textContent = "Tracking code not found. Please confirm the code.";
+    if (meta) meta.textContent = "Need help? Request your tracking code on WhatsApp.";
+    steps.forEach((step) => step.classList.remove("active", "current"));
+  };
+
+  const applyTrackerState = (scope, code, payload) => {
+    const fill = scope.querySelector("[data-tracker-fill]");
+    const status = scope.querySelector(".tracker-status");
+    const meta = scope.querySelector("[data-tracker-meta]");
+    const steps = scope.querySelectorAll("[data-track-step]");
+
+    if (fill) fill.style.width = `${payload.progress}%`;
+    if (status) status.textContent = payload.status;
+    if (meta) meta.textContent = `Code: ${code} | ETA: ${payload.eta}`;
+
+    steps.forEach((step) => {
+      const stepIndex = Number(step.dataset.trackStep || 0);
+      step.classList.toggle("active", stepIndex <= payload.step);
+      step.classList.toggle("current", stepIndex === payload.step);
+    });
+  };
+
+  trackerForms.forEach((form) => {
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const type = form.dataset.trackerType || "";
+      const input = form.querySelector("[data-tracker-input]");
+      const scope = form.closest(".tracker-shell");
+
+      if (!input || !scope) return;
+
+      const code = input.value.trim().toUpperCase();
+      const payload = trackerData[type] ? trackerData[type][code] : null;
+
+      if (!payload) {
+        clearTrackerState(scope);
+        return;
+      }
+
+      applyTrackerState(scope, code, payload);
+    });
+  });
 
   /* ================= PRICING BUTTONS ================= */
 
@@ -523,6 +572,94 @@ Please give me more details.`;
       item.classList.toggle("active");
     });
   });
+
+  /* ================= FAQ SEARCH FILTER ================= */
+
+  const faqSearchHub = document.querySelector(".faq-search-hub");
+  const faqSearchInput = faqSearchHub?.querySelector("[data-faq-search-input]");
+  const faqSearchButton = faqSearchHub?.querySelector("[data-faq-search-button]");
+  const faqSearchChips = faqSearchHub?.querySelectorAll("[data-faq-query]");
+  const faqSection = document.querySelector(".faq");
+
+  if (faqSearchInput && faqSection) {
+    const faqContainer = faqSection.querySelector(".container");
+    const faqCategories = Array.from(faqSection.querySelectorAll(".faq-category"));
+    const faqEmpty = faqSection.querySelector("[data-faq-empty]");
+    const normalizeFaqText = (value) => value.toLowerCase().trim();
+    const faqItemsMeta = [];
+    let activeCategory = "";
+
+    Array.from(faqContainer.children).forEach((block) => {
+      if (block.classList.contains("faq-category")) {
+        activeCategory = block.textContent.trim();
+      }
+
+      if (block.classList.contains("faq-item")) {
+        faqItemsMeta.push({
+          category: activeCategory,
+          element: block,
+          text: normalizeFaqText(`${activeCategory} ${block.textContent}`),
+        });
+      }
+    });
+
+    const setActiveFaqChip = (query) => {
+      faqSearchChips.forEach((chip) => {
+        chip.classList.toggle(
+          "active",
+          normalizeFaqText(chip.dataset.faqQuery || "") === query,
+        );
+      });
+    };
+
+    const applyFaqSearch = () => {
+      const query = normalizeFaqText(faqSearchInput.value);
+      let visibleCount = 0;
+
+      faqItemsMeta.forEach(({ element, text }) => {
+        const isVisible = !query || text.includes(query);
+        element.classList.toggle("is-hidden", !isVisible);
+
+        if (!isVisible) {
+          element.classList.remove("active");
+        } else {
+          visibleCount += 1;
+        }
+      });
+
+      faqCategories.forEach((category) => {
+        const categoryName = normalizeFaqText(category.textContent);
+        const hasVisibleItems = faqItemsMeta.some(
+          (item) =>
+            normalizeFaqText(item.category) === categoryName &&
+            !item.element.classList.contains("is-hidden"),
+        );
+
+        category.classList.toggle("is-hidden", query && !hasVisibleItems);
+      });
+
+      if (faqEmpty) {
+        faqEmpty.classList.toggle("show", visibleCount === 0);
+      }
+
+      setActiveFaqChip(query);
+    };
+
+    faqSearchInput.addEventListener("input", applyFaqSearch);
+
+    faqSearchButton?.addEventListener("click", () => {
+      applyFaqSearch();
+      faqSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    faqSearchChips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        faqSearchInput.value = chip.dataset.faqQuery || "";
+        applyFaqSearch();
+        faqSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  }
 
   /* ================= SUPPORT FORM ================= */
 
